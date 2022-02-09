@@ -1,1 +1,5 @@
+<%= javascript_include_tag "carrinho" %>
 tela_landing_page
+<% @produtos.each do |produto| %>
+	<button class="botao-adicionar-carrinho" id="botao-adicionar-carrinho-<%= produto.id %>">Adicionar ao carrinho</button>
+<% end %>

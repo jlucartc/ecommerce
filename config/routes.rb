@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   post "/produtos/novo/confirmar", to: "usuario#adicionar_produto_estoque", as: "confirmar_cadastro_produto"
   post "/remover_produto", to: "usuario#remover_produto_estoque", as: "remover_produto"
   post "/finalizar_compra", to: "usuario#finalizar_compra", as: "finalizar_compra"
+  post "/consultar_produtos", to: "application#consultar_produtos", as: "consultar_produtos"
 end

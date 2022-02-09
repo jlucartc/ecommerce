@@ -4,8 +4,16 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+one: {
+  nome: 'Produto 1',
+  preco: 10.00,
+  quantidade: 5
+}
 # column: value
 #
-two: {}
+two: {
+  nome: "Produto 2",
+  preco: 15.00,
+  quantidade: 10
+}
 # column: value
