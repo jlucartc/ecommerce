@@ -14,5 +14,6 @@ two: {
 }
 # column: value
 vendedor: {
+  id: 1,
   email: 'vendedor@vendas.com'
 }

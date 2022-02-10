@@ -1,7 +1,13 @@
 tela_pedidos_comprador
+<%= javascript_include_tag "pedidos_comprador" %>
 
-<%= flash[:danger] %>
-<%= flash[:success] %>
+<% if flash[:danger].present? %>
+	<h2 id="danger"><%= flash[:danger] %></h2>
+<% end%>
+
+<% if flash[:success].present? %>
+	<h2 id="success"><%= flash[:success] %></h2>
+<% end%>
 
 <h2>Produtos comprados</h2>
 
