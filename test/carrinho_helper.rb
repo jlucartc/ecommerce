@@ -14,6 +14,19 @@ module CarrinhoHelper
     produto_id
   end
 
+  def adiciona_produto_inexistente_ao_carrinho
+    visit landing_page_path
+    novo_carrinho = carrinho << 0 
+    evaluate_script("localStorage.setItem('carrinho',JSON.stringify(#{novo_carrinho.to_s}))")
+    return "0"
+  end
+
+  def finaliza_compra
+    visit carrinho_path
+    botao_finalizar_compra = find_button(class: 'botao-finalizar-compra', match: :first)
+    botao_finalizar_compra.click
+  end
+
   def recupera_id(string)
     string.split('-').last
   end

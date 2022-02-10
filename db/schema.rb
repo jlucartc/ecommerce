@@ -19,13 +19,14 @@ ActiveRecord::Schema.define(version: 2022_02_08_195716) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "pedido_itens", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "pedidos", force: :cascade do |t|
-    t.integer "usuario_id"
+    t.integer "produto_id"
+    t.string "produto_nome"
+    t.float "produto_preco"
+    t.integer "pedido_id"
+    t.integer "quantidade"
+    t.integer "comprador_id"
+    t.integer "vendedor_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -34,6 +35,7 @@ ActiveRecord::Schema.define(version: 2022_02_08_195716) do
     t.string "nome"
     t.float "preco"
     t.integer "quantidade"
+    t.integer "usuario_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

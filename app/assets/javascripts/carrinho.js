@@ -17,6 +17,7 @@ var html_item_carrinho = function(data){
 	var preco = document.createElement('p')
 	var remover = document.createElement('button')
 	var input_quantidade = document.createElement('input')
+	var input_produto_id = document.createElement('input')
 	var aumenta_quantidade = document.createElement('button')
 	var diminui_quantidade = document.createElement('button')
 
@@ -30,14 +31,21 @@ var html_item_carrinho = function(data){
 	remover.className = 'item-carrinho-controles-remover'
 	remover.id = 'item-carrinho-controles-remover-'+data.id
 	input_quantidade.className = 'item-carrinho-quantidade-input'
+	input_quantidade.name = 'produtos[][quantidade]'
+	input_quantidade.type = 'number'
+	input_quantidade.min = 1
+	input_quantidade.max = data.quantidade
+	input_quantidade.value = 1
+	input_produto_id.className = 'item-carrinho-produto-id'
+	input_produto_id.name = 'produtos[][id]'
+	input_produto_id.type = "text"
+	input_produto_id.hidden = "true"
+	input_produto_id.value = data.id
 	aumenta_quantidade.className = 'item-carrinho-quantidade-aumenta'
 	diminui_quantidade.className = 'item-carrinho-quantidade-diminui'
 	remover.innerText = 'Remover'
 	aumenta_quantidade.innerText = '+'
 	diminui_quantidade.innerText = '-'
-	input_quantidade.type = 'number'
-	input_quantidade.min = 1
-	input_quantidade.mac = data.quantidade
 	nome.innerText = data.nome
 	preco.innerText = 'R$ '+data.preco
 
@@ -50,6 +58,7 @@ var html_item_carrinho = function(data){
 	carrinho_item.appendChild(informacoes)
 	carrinho_item.appendChild(quantidade)
 	carrinho_item.appendChild(controles)
+	carrinho_item.appendChild(input_produto_id)
 
 	return carrinho_item
 }

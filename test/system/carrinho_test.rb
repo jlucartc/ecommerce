@@ -29,10 +29,15 @@ class CarrinhoTest < ApplicationSystemTestCase
 
   test "deve finalizar compra apenas para usuarios logados" do
     adiciona_produto_ao_carrinho
-    visit carrinho_path
-    botao_finalizar_compra = find_button(class: 'botao-finalizar-compra', match: :first)
-    botao_finalizar_compra.click
+    finaliza_compra
     assert page.current_path == new_usuario_session_path
+  end
+
+  test "deve finalizar compra apenas se todos os produtos existirem" do
+    sign_in usuarios(:one)
+    adiciona_produto_inexistente_ao_carrinho
+    finaliza_compra
+    assert page.current_path == carrinho_path
   end
 
 end
