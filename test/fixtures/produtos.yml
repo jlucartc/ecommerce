@@ -7,18 +7,21 @@
 one: {
   nome: 'Produto 1',
   preco: 10.00,
-  quantidade: 5
+  quantidade: 5,
+  usuario_id: 1
 }
 # column: value
 #
 two: {
   nome: "Produto 2",
   preco: 15.00,
-  quantidade: 10
+  quantidade: 10,
+  usuario_id: 1
 }
 # column: value
 esgotado: {
   nome: "Produto Esgotado",
   preco: 15.00,
-  quantidade: 0
+  quantidade: 0,
+  usuario_id: 1
 }

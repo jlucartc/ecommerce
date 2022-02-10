@@ -13,3 +13,6 @@ two: {
   email: 'mail@mail.com'
 }
 # column: value
+vendedor: {
+  email: 'vendedor@vendas.com'
+}
