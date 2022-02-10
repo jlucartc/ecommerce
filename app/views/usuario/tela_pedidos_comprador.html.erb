@@ -1,1 +1,13 @@
 tela_pedidos_comprador
+
+<%= flash[:danger] %>
+<%= flash[:success] %>
+
+<h2>Produtos comprados</h2>
+
+<% @pedidos.each do |pedido| %>
+	<p>Produto: <%= pedido.nome %> </p>
+	<p>Preco: <%= pedido.nome %> </p>
+	<p>Quantidade: <%= pedido.quantidade %> </p>
+	<p>Total: <%= pedido.preco * pedido.quantidade %> </p>
+<% end %>

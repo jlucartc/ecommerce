@@ -1,5 +1,5 @@
 class Pedido < ApplicationRecord
-	validates :produto_id, :produto_nome, :produto_preco, :quantidade, :comprador_id, :vendedor_id, presence: true
+	validates :produto_id, :nome, :preco, :quantidade, :comprador_id, :vendedor_id, presence: true
 	validate :produto_possui_estoque
 
 	def produto_possui_estoque

@@ -11,9 +11,11 @@ class UsuarioController < ApplicationController
 	end
 
 	def tela_pedidos_vendedor
+		@pedidos = Pedido.where(vendedor_id: current_usuario)
 	end
 
 	def tela_pedidos_comprador
+		@pedidos = Pedido.where(comprador_id: current_usuario)
 	end
 
 	def tela_estoque
@@ -38,8 +40,8 @@ class UsuarioController < ApplicationController
 
 				Pedido.new(
 					produto_id: item[:id],
-					produto_nome: produto.present? ? produto.nome : nil,
-					produto_preco: produto.present? ? produto.preco : nil,
+					nome: produto.present? ? produto.nome : nil,
+					preco: produto.present? ? produto.preco : nil,
 					quantidade: item[:quantidade],
 					comprador_id: current_usuario.id,
 					vendedor_id: produto.present? ? produto.usuario_id : nil
@@ -52,12 +54,13 @@ class UsuarioController < ApplicationController
 					pedidos.each{|linha| linha.delete if linha.id? }
 					break
 				else
-					pedido.create
+					pedido.save
 				end
 			end
 
 			if pedidos.pluck(:id).exclude?(nil)
 				flash[:success] = "A compra foi finalizada com sucesso!"
+				redirect_to pedidos_comprador_path
 			else
 				flash[:danger] = 'Erro: a compra não pode ser efetuada.'
 				redirect_to carrinho_path

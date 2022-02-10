@@ -47,4 +47,19 @@ class CarrinhoTest < ApplicationSystemTestCase
     assert page.current_path == carrinho_path
   end
 
+  test "o comprador deve ser capaz de visualizar o pedido após a finalização da compra" do
+    sign_in usuarios(:two)
+    produto_id = adiciona_produto_ao_carrinho
+    finaliza_compra
+    visit pedidos_comprador_path
+    assert_selector "p", text: "Produto: #{produtos.filter{|produto| produto[:id].to_s == produto_id.to_s}.first[:nome]}"
+  end
+
+  test "o usuario deve ser redirecionado para a pagina de pedidos ao finalizar sua compra" do
+    sign_in usuarios(:two)
+    adiciona_produto_ao_carrinho
+    finaliza_compra
+    assert page.current_path == pedidos_comprador_path
+  end
+
 end
