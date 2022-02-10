@@ -1,6 +1,6 @@
 require "application_system_test_case"
 
-class CarrinhosTest < ApplicationSystemTestCase
+class CarrinhoTest < ApplicationSystemTestCase
 
   def limpar_local_storage
     visit landing_page_path
