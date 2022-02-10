@@ -36,18 +36,27 @@ class UsuarioController < ApplicationController
 				
 				produto = Produto.find(item[:id])
 
-				{
+				Pedido.new(
 					produto_id: item[:id],
 					produto_nome: produto.present? ? produto.nome : nil,
 					produto_preco: produto.present? ? produto.preco : nil,
 					quantidade: item[:quantidade],
 					comprador_id: current_usuario.id,
 					vendedor_id: produto.present? ? produto.usuario_id : nil
-				}
+				)
 
 			end
 			
-			if Pedido.insert_all(pedidos)
+			pedidos.each do |pedido|
+				if pedido.invalid?
+					pedidos.each{|linha| linha.delete if linha.id? }
+					break
+				else
+					pedido.create
+				end
+			end
+
+			if pedidos.pluck(:id).exclude?(nil)
 				flash[:success] = "A compra foi finalizada com sucesso!"
 			else
 				flash[:danger] = 'Erro: a compra não pode ser efetuada.'

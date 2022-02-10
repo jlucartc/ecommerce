@@ -40,4 +40,11 @@ class CarrinhoTest < ApplicationSystemTestCase
     assert page.current_path == carrinho_path
   end
 
+  test "deve finalizar compra apenas se houver quantidade suficiente no estoque para todos os produtos" do
+    sign_in usuarios(:one)
+    adiciona_produto_esgotado_ao_carrinho
+    finaliza_compra
+    assert page.current_path == carrinho_path
+  end
+
 end

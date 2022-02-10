@@ -17,3 +17,8 @@ two: {
   quantidade: 10
 }
 # column: value
+esgotado: {
+  nome: "Produto Esgotado",
+  preco: 15.00,
+  quantidade: 0
+}

@@ -21,6 +21,14 @@ module CarrinhoHelper
     return "0"
   end
 
+  def adiciona_produto_esgotado_ao_carrinho
+    visit landing_page_path
+    botao_adicionar = find_button(id: "botao-adicionar-carrinho-#{produtos(:esgotado).id}", match: :first)
+    produto_id = recupera_id(botao_adicionar[:id])
+    botao_adicionar.click
+    produto_id
+  end
+
   def finaliza_compra
     visit carrinho_path
     botao_finalizar_compra = find_button(class: 'botao-finalizar-compra', match: :first)

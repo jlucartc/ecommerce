@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2022_02_08_195716) do
     t.integer "produto_id"
     t.string "produto_nome"
     t.float "produto_preco"
-    t.integer "pedido_id"
     t.integer "quantidade"
     t.integer "comprador_id"
     t.integer "vendedor_id"
