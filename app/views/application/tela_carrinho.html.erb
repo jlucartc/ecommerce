@@ -1,3 +1,7 @@
 tela_carrinho
 <%= javascript_include_tag "carrinho" %>
-<div id="carrinho-itens"></div>
+<form action="<%= finalizar_compra_path %>" method="post" data-turbo="false">
+	<%= token_tag %>
+	<div id="carrinho-itens"></div>
+	<button type="submit" class="botao-finalizar-compra">Finalizar compra</button>
+</form>

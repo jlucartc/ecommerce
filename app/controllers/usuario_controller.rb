@@ -1,5 +1,5 @@
 class UsuarioController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_usuario!
 
 	def tela_ver_produto_estoque
 	end
