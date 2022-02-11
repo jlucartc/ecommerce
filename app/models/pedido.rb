@@ -16,7 +16,6 @@ class Pedido < ApplicationRecord
 	end
 
 	def subtrai_quantidade_de_produto
-		binding.pry
 		if self.produto_id.present?
 			produto = Produto.find(self.produto_id)
 			if produto.present?

@@ -38,14 +38,19 @@ class UsuarioController < ApplicationController
 				
 				produto = Produto.find(item[:id])
 
-				Pedido.new(
+				pedido = Pedido.new(
 					produto_id: item[:id],
-					nome: produto.present? ? produto.nome : nil,
-					preco: produto.present? ? produto.preco : nil,
-					quantidade: item[:quantidade],
 					comprador_id: current_usuario.id,
-					vendedor_id: produto.present? ? produto.usuario_id : nil
+					quantidade: item[:quantidade]
 				)
+
+				if produto.present?
+					pedido.nome = produto.nome
+					pedido.preco = produto.preco
+					pedido.vendedor_id = produto.usuario_id
+				end
+
+				pedido
 
 			end
 			
