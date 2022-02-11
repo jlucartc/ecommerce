@@ -11,6 +11,20 @@
   </head>
 
   <body>
+    <div id="menu">
+      <a id="menu-link" href="<%= landing_page_path %>">Home</a>
+      <a id="menu-link" href="<%= carrinho_path %>">Carrinho</a>
+      <a id="menu-link" href="<%= new_usuario_session_path %>">Login</a>
+      <% if current_usuario.present? %>
+        <form action="<%= destroy_usuario_session_path %>" method="delete">
+          <%= token_tag %>
+          <input type="submit" id="menu-link" value="Logout">
+        </form>
+        <a id="menu-link" href="<%= pedidos_comprador_path %>">Minhas compras</a>
+        <a id="menu-link" href="<%= pedidos_vendedor_path %>">Minhas vendas</a>
+        <a id="menu-link" href="<%= estoque_path %>">Estoque</a>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

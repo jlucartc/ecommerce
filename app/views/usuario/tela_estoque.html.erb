@@ -1,1 +1,22 @@
-tela_estoque
+<div id="estoque">
+	<div id="left"></div>
+	<div id="center">
+		<div id="controles">
+			<a id="criar-produto" href="<%= novo_produto_path %>">Novo produto</a>
+		</div>
+		<% if @produtos.present? %>
+			<div id="lista-produtos">
+				<% @produtos.each do |produto|%>
+					<div class="produto">
+						<div class="produto-nome"><%= produto.nome %></div>
+						<div class="produto-preco"><%= produto.preco %></div>
+						<div class="produto-controles"></div>
+					</div>
+				<% end %>
+			</div>
+		<% else %>
+			<div id="lista-vazia">Não há produtos cadastrados</div>
+		<% end %>
+	</div>
+	<div id="right"></div>
+</div>

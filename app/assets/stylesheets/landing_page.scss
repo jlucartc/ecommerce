@@ -1,0 +1,28 @@
+.produto-container {
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: start;
+
+	.produto-informacoes{
+		.produto-nome{
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: start;
+		}
+		.produto-preco{
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: start;
+		}
+	}
+	.produto-controles{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: start;
+	}
+}

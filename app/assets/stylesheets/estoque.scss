@@ -1,0 +1,31 @@
+#estoque{
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	font-family: helvetica;
+
+	#left{}
+	
+	#center{
+		#controles{
+			#criar-produto{
+				text-decoration: none;
+				color: inherit;
+			}
+		}
+		#lista-produtos{
+			.produto{
+				.produto-nome{}
+				.produto-preco{}
+				.produto-controles{}
+			}
+		}
+
+		#lista-vazia{
+			text-align: center;
+			background-color: #eeeeee;
+		}
+	}
+	
+	#right{}
+
+}

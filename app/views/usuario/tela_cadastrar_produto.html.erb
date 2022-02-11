@@ -1,1 +1,9 @@
-tela_cadastrar_produto
+<div id="tela-cadastrar-produto">
+	<form id="form-cadastro-produto" action="<%= cadastrar_produto_path %>" method="post" enctype="multipart/form-data">
+		<input type="text" name="nome" placeholder="nome">
+		<input type="number" min="0" step="0.01" name="preco" placeholder="preco">
+		<input type="number" min="1" step="1" name="quantidade" placeholder="quantidade">
+		<input type="file" name="imagens[]" multiple >
+		<input type="submit" name="enviar" value="Cadastrar">
+	</form>
+</div>

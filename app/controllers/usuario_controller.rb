@@ -19,12 +19,22 @@ class UsuarioController < ApplicationController
 	end
 
 	def tela_estoque
+		@produtos = Produto.where(usuario_id: current_usuario.id)
 	end
 
 	def tela_confirmacao_pedido
 	end
 
-	def adicionar_produto_estoque
+	def cadastrar_produto
+		produto = cadastrar_produto_parametros(params)
+		produto = Produto.new(nome: produto[:nome], preco: produto[:preco], quantidade: produto[:quantidade], imagens: produto[:imagens], usuario_id: current_usuario.id)
+		if produto.save
+			flash[:success] = "Produto criado com sucesso"
+			redirect_to estoque_path
+		else
+			flash[:danger] = "Erro na criação do produto"
+			redirect_to novo_produto_path
+		end
 	end
 
 	def remover_produto_estoque
@@ -81,6 +91,10 @@ class UsuarioController < ApplicationController
 
 		def finalizar_compra_produtos_parametros(params)
 			params.permit(produtos: [:id,:quantidade]).to_h[:produtos]
+		end
+
+		def cadastrar_produto_parametros(params)
+			params.permit(:nome,:quantidade,:preco,imagens: []).to_h
 		end
 
 end

@@ -1,5 +1,20 @@
-<%= javascript_include_tag "landing_page" %>
-tela_landing_page
-<% @produtos.each do |produto| %>
-	<button class="botao-adicionar-carrinho" id="botao-adicionar-carrinho-<%= produto.id %>">Adicionar ao carrinho</button>
-<% end %>
+<div id="landing-page">
+	<%= javascript_include_tag "landing_page" %>
+	<% @produtos.each do |produto| %>
+		<div class="produto-container">
+			<div class="produto-informacoes">
+				<div class="produto-nome">
+					<label>Nome: </label>
+					<p><%= produto.nome %></p>
+				</div>
+				<div class="produto-preco">
+					<label>Preco: </label>
+					<p>R$ <%= produto.preco %></p>
+				</div>
+			</div>
+			<div class="produto-controles">
+				<button class="botao-adicionar-carrinho" id="botao-adicionar-carrinho-<%= produto.id %>">Adicionar ao carrinho</button>
+			</div>
+		</div>
+	<% end %>
+</div>
