@@ -118,19 +118,25 @@
 				}
 
 				.oferta-produtos{
+					width: 100%;
 					display: grid;
-					grid-template-columns: repeat(auto-fill,200px);
+					gap: 10px;
+					grid-template-columns: repeat(auto-fill,180px);
 
 					.oferta-produto{
 
-						background-color: #f5f5f5;
 						border-top-left-radius: 5px;
 						border-top-right-radius: 5px;
 						border-bottom-left-radius: 5px;
 						border-bottom-right-radius: 5px;
-						
+						display: grid;
+						overflow: hidden;
+						grid-template-columns: 1fr;
+						grid-template-rows: repeat(5,80px);
+
 						&:hover{
-							background-color: rgba(#999999,0.3);
+							background-color: rgba(#999999,1);
+							filter: opacity(0.3);
 						}
 
 						.oferta-produto-link{
@@ -138,12 +144,13 @@
 						}
 
 						.oferta-produto-imagem{
-							max-width: 100%;
-							filter: opacity(0.1);
+							grid-row: 1 / 5;
+							max-height: 100%;
 							border-top-left-radius: 5px;
 							border-top-right-radius: 5px;
 						}
 						.oferta-produto-informacoes{
+							grid-row: 5 / 6;
 							margin: 10px 10px 10px 10px;
 							display: grid;
 							grid-template-columns: 1fr;

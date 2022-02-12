@@ -16,4 +16,8 @@ class Produto < ApplicationRecord
 		end
 	end
 
+	def has_imagem?
+		Imagem.where(produto_id: self.id).present?
+	end
+
 end

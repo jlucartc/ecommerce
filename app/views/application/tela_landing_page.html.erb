@@ -24,15 +24,21 @@
 					Oferta de produtos
 				</div>
 				<div class="oferta-produtos">
-					<div class="oferta-produto">
-						<a class="oferta-produto-link" href="<%= ver_produto_path(id: 1) %>"></a>
-						<img class="oferta-produto-imagem" src="<%= asset_path('dummy')%>">
-						<div class="oferta-produto-informacoes">
-							<div class="oferta-produto-informacoes-nome">Nome do produto</div>
-							<div class="oferta-produto-informacoes-preco">R$ 1000.00</div>
-							<button hidden>Botao</button>
+					<% @produtos.each do |produto| %>
+						<div class="oferta-produto">
+							<a class="oferta-produto-link" href="<%= ver_produto_path(produto.id) %>"></a>
+							<% if produto.has_imagem? %>
+								<img class="oferta-produto-imagem" src='<%= asset_path("produtos/#{Imagem.where(produto_id: produto.id).first.path}")%>'>
+							<% else %>
+								<img class="oferta-produto-imagem" src='<%= asset_path("dummy.png")%>'>
+							<% end%>
+							<div class="oferta-produto-informacoes">
+								<div class="oferta-produto-informacoes-nome"><%= produto.nome %></div>
+								<div class="oferta-produto-informacoes-preco">R$ <%= produto.preco %></div>
+								<button hidden>Botao</button>
+							</div>
 						</div>
-					</div>
+					<% end %>
 				</div>
 			</div>
 		</div>
