@@ -1,6 +1,15 @@
-<%= javascript_include_tag "carrinho" %>
-<form action="<%= finalizar_compra_path %>" method="post" data-turbo="false">
-	<%= token_tag %>
-	<div id="carrinho-itens"></div>
-	<button type="submit" class="botao-finalizar-compra">Finalizar compra</button>
-</form>
+<div id="carrinho">
+	<div id="left"></div>
+	<div id="center">
+		<div id="lista-carrinho">
+			<div id="lista-vazia">Não há produtos no carrinho</div>
+			<form action="<%= finalizar_compra_path %>" method="post" data-turbo="false">
+				<%= token_tag %>
+				<div id="carrinho-itens">
+				</div>
+				<button type="submit" class="botao-finalizar-compra">Finalizar compra</button>
+			</form>
+		</div>
+	</div>
+	<div id="right"></div>
+</div>

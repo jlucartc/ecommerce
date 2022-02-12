@@ -1,4 +1,3 @@
-
 var limpa_carrinho = function(){
 
 	var mensagem_sucesso = document.getElementById('success')
@@ -8,12 +7,8 @@ var limpa_carrinho = function(){
 	}
 }
 
-document.onreadystatechange = function(){
-
-	if(document.readyState === 'complete'){
+document.addEventListener('turbo:load',function(){
 
 		limpa_carrinho()
 
-	}
-
-}
+})

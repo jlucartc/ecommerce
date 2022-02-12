@@ -12,17 +12,18 @@
 
   <body>
     <div id="menu">
-      <a id="menu-link" href="<%= landing_page_path %>">Home</a>
-      <a id="menu-link" href="<%= carrinho_path %>">Carrinho</a>
-      <a id="menu-link" href="<%= new_usuario_session_path %>">Login</a>
+      <a class="menu-link" href="<%= landing_page_path %>">Home</a>
+      <a class="menu-link" href="<%= carrinho_path %>">Carrinho</a>
       <% if current_usuario.present? %>
+        <a class="menu-link" href="<%= pedidos_comprador_path %>">Minhas compras</a>
+        <a class="menu-link" href="<%= pedidos_vendedor_path %>">Minhas vendas</a>
+        <a class="menu-link" href="<%= estoque_path %>">Estoque</a>
         <form action="<%= destroy_usuario_session_path %>" method="delete">
           <%= token_tag %>
-          <input type="submit" id="menu-link" value="Logout">
+          <input type="submit" class="menu-link menu-link-logout" value="Logout">
         </form>
-        <a id="menu-link" href="<%= pedidos_comprador_path %>">Minhas compras</a>
-        <a id="menu-link" href="<%= pedidos_vendedor_path %>">Minhas vendas</a>
-        <a id="menu-link" href="<%= estoque_path %>">Estoque</a>
+      <% else %>
+        <a class="menu-link" href="<%= new_usuario_session_path %>">Login</a>
       <% end %>
     </div>
     <%= yield %>

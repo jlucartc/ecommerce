@@ -1,0 +1,26 @@
+#carrinho{
+
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+
+	#left{}
+	#center{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: start;
+
+		.lista-vazia{
+			text-align: center;
+		}
+
+		#lista-carrinho{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: start;
+		}
+
+	}
+	#right{}
+}

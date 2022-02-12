@@ -29,12 +29,25 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: start;
-  padding: 10px 0px 10px 0px;
+  padding: 10px 25px 10px 25px;
   background-color: #aaaaaa;
 
-  #menu-link{
-    margin: 0px 0px 0px 10px;
+  .menu-link{
+    margin: 0px 25px 0px 0px;
     text-decoration: none;
     color: inherit;
+    font-size: 1.2em;
+    font-family: helvetica;
+    color: rgba(#111111,1);
+
+    &:hover{
+      font-weight: bold;
+    }
+
+  }
+
+  .menu-link-logout{
+    border: none;
+    background-color: transparent;
   }
 }

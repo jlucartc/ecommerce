@@ -1,20 +1,41 @@
 <div id="landing-page">
-	<%= javascript_include_tag "landing_page" %>
-	<% @produtos.each do |produto| %>
-		<div class="produto-container">
-			<div class="produto-informacoes">
-				<div class="produto-nome">
-					<label>Nome: </label>
-					<p><%= produto.nome %></p>
-				</div>
-				<div class="produto-preco">
-					<label>Preco: </label>
-					<p>R$ <%= produto.preco %></p>
-				</div>
+	<div id="left"></div>
+	<div id="center">
+		<form id="grupo-busca" action="" method="post">
+			<%= token_tag %>
+			<input id="busca-input" type="text" name="busca">
+			<input id="busca-botao" type="submit" name="submit">
+		</form>
+		<div id="carroussel">
+			<div class="carroussel-imagens-container">
+				<img class="carroussel-imagem" src="https://dummyimage.com/6000x2000/ff6666/fff">
+				<img class="carroussel-imagem" src="https://dummyimage.com/6000x2000/66ff66/fff">
+				<img class="carroussel-imagem" src="https://dummyimage.com/6000x2000/6666ff/fff">
+				<img class="carroussel-imagem" src="https://dummyimage.com/6000x2000/222222/fff">
 			</div>
-			<div class="produto-controles">
-				<button class="botao-adicionar-carrinho" id="botao-adicionar-carrinho-<%= produto.id %>">Adicionar ao carrinho</button>
+			<div class="carroussel-cover">
+				<div class="carroussel-cover-left"></div>
+				<div class="carroussel-cover-right"></div>
 			</div>
 		</div>
-	<% end %>
+		<div id="ofertas">
+			<div class="oferta">
+				<div class="oferta-header">
+					Oferta de produtos
+				</div>
+				<div class="oferta-produtos">
+					<div class="oferta-produto">
+						<a class="oferta-produto-link" href="<%= ver_produto_path(id: 1) %>"></a>
+						<img class="oferta-produto-imagem" src="<%= asset_path('dummy')%>">
+						<div class="oferta-produto-informacoes">
+							<div class="oferta-produto-informacoes-nome">Nome do produto</div>
+							<div class="oferta-produto-informacoes-preco">R$ 1000.00</div>
+							<button hidden>Botao</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="right"></div>
 </div>
