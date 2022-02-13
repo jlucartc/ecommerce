@@ -37,6 +37,8 @@
 					grid-row: 1 / 5;
 
 					#produto-imagem{
+						border: 1px solid #444444;
+						border-radius: 5px;
 						max-width: 100%;
 					}
 
@@ -94,6 +96,9 @@
 				overflow: hidden;
 
 				.produto-carroussel-imagem{
+					padding: 0px 5px 0px 5px;
+					border: 1px solid #444444;
+					border-radius: 5px;
 					max-width: 100%;
 				}
 
