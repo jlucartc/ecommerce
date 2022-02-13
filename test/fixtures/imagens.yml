@@ -6,7 +6,7 @@
 #
 one: {
   produto_id: 1,
-  path: "app/assets/images/produtos/imagem_teste.png"
+  path: "imagem_teste.png"
 }
 # column: value
 #

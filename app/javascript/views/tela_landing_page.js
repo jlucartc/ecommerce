@@ -1,16 +1,3 @@
-var adiciona_item_carrinho = function(id){
-	var carrinho = 	JSON.parse(localStorage.getItem('carrinho'))
-
-	if(carrinho === null || carrinho === undefined){
-		localStorage.setItem('carrinho',JSON.stringify([id]))
-	}else{
-		if(!carrinho.includes(id)){
-			carrinho.push(id)
-			localStorage.setItem('carrinho',JSON.stringify(carrinho))
-		}
-	}
-}
-
 var inicia_carroussel = function(){
 	var imagens = Array.from(document.getElementsByClassName('carroussel-imagem'))
 	if(imagens.length > 0){
@@ -85,8 +72,7 @@ var ajustar_imagens_ofertas = function(){
 }
 
 var registra_eventos = function(){
-		
-		var botoes_adicionar_carrinho = Array.from(document.getElementsByClassName('botao-adicionar-carrinho'))
+	
 		var carroussel_left = Array.from(document.getElementsByClassName('carroussel-cover-left'))
 		var carroussel_right = Array.from(document.getElementsByClassName('carroussel-cover-right'))
 		var oferta_produtos = Array.from(document.getElementsByClassName('oferta-produto'))
@@ -113,14 +99,6 @@ var registra_eventos = function(){
 
 		carroussel_right.forEach((elemento) => {
 			elemento.addEventListener('click',function(){ move_carroussel_direita() })
-		})
-
-		botoes_adicionar_carrinho.forEach((elemento) => {
-			elemento.removeEventListener('click',function(){ adiciona_item_carrinho(elemento.id.split('-').pop()) })
-		})
-
-		botoes_adicionar_carrinho.forEach((elemento) => {
-			elemento.addEventListener('click',function(){ adiciona_item_carrinho(elemento.id.split('-').pop()) })
 		})
 
 }

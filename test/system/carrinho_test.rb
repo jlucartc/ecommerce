@@ -3,10 +3,12 @@ require "application_system_test_case"
 class CarrinhoTest < ApplicationSystemTestCase
 
   setup do
+    cria_arquivo_de_imagem_teste
     limpar_local_storage
   end
 
   teardown do
+    apaga_arquivo_de_imagem_teste
     limpar_local_storage
   end
 

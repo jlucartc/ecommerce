@@ -8,6 +8,8 @@ module CarrinhoHelper
 
   def adiciona_produto_ao_carrinho
     visit landing_page_path
+    produto = find_all(class: 'oferta-produto').first
+    produto.click
     botao_adicionar = find_button(class: 'botao-adicionar-carrinho', match: :first)
     produto_id = recupera_id(botao_adicionar[:id])
     botao_adicionar.click
@@ -23,6 +25,8 @@ module CarrinhoHelper
 
   def adiciona_produto_esgotado_ao_carrinho
     visit landing_page_path
+    link = page.find(:css,".oferta-produto > .oferta-produto-link[href='#{ver_produto_path(produtos(:esgotado)[:id])}']",visible: false).ancestor(:css,'.oferta-produto')
+    link.click
     botao_adicionar = find_button(id: "botao-adicionar-carrinho-#{produtos(:esgotado).id}", match: :first)
     produto_id = recupera_id(botao_adicionar[:id])
     botao_adicionar.click
@@ -44,4 +48,14 @@ module CarrinhoHelper
     carrinho = [] if carrinho.nil?
     carrinho
   end
+
+  def cria_arquivo_de_imagem_teste
+    imagem = File.open("app/assets/images/produtos/imagem_teste.png",'w')
+    imagem.write(File.open("app/assets/images/dummy.png",'r').read)
+  end
+
+  def apaga_arquivo_de_imagem_teste
+    File.delete("app/assets/images/produtos/imagem_teste.png")
+  end
+
 end
