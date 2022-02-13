@@ -1,4 +1,4 @@
-var limpa_carrinho = function(){
+function limpa_carrinho(){
 
 	var mensagem_sucesso = document.getElementById('success')
 
@@ -7,8 +7,4 @@ var limpa_carrinho = function(){
 	}
 }
 
-document.addEventListener('turbo:load',function(){
-
-		limpa_carrinho()
-
-})
+export { limpa_carrinho }

@@ -1,4 +1,5 @@
-var remove_item_carrinho = function(evento,id){
+function remove_item_carrinho(evento){
+	var id = evento.target.id.split('-').pop()
 	var carrinho = JSON.parse(localStorage.getItem('carrinho'))
 	if(carrinho.includes(id)){
 		localStorage.setItem('carrinho',JSON.stringify(carrinho.slice(0,-1)))
@@ -8,7 +9,7 @@ var remove_item_carrinho = function(evento,id){
 	item_container.removeChild(item)
 }
 
-var html_item_carrinho = function(data){
+function html_item_carrinho(data){
 	var carrinho_item = document.createElement('div')
 	var informacoes = document.createElement('div')
 	var quantidade = document.createElement('div')
@@ -65,14 +66,14 @@ var html_item_carrinho = function(data){
 	return carrinho_item
 }
 
-var remove_lista_vazia = function(){
+function remove_lista_vazia(){
 	var mensagem = document.getElementById('lista-vazia')
 	if(mensagem != null && mensagem != undefined){
 		mensagem.parentElement.removeChild(mensagem)
 	}
 }
 
-var gera_itens_carrinho = function(itens){
+function gera_itens_carrinho(itens){
 	var itens_container = document.getElementById('carrinho-itens')
 	if(itens_container != null && itens != undefined){
 		if((itens != null && itens != undefined) || (typeof(a) == 'object' && a.length == 0)){
@@ -87,7 +88,7 @@ var gera_itens_carrinho = function(itens){
 	registra_eventos()
 }
 
-var consulta_produtos = function(){
+function consulta_produtos(){
 	var itens_carrinho = JSON.parse(localStorage.getItem('carrinho'))
 	var ajax = new XMLHttpRequest();
 	ajax.onload = function(e){
@@ -99,20 +100,20 @@ var consulta_produtos = function(){
 	ajax.send('{"data":'+JSON.stringify(itens_carrinho)+"}")
 }
 
-var registra_eventos = function(){
+function registra_eventos(){
 		var botoes_remover_carrinho = Array.from(document.getElementsByClassName('item-carrinho-controles-remover'))
 
 		botoes_remover_carrinho.forEach((item) => {
-			item.removeEventListener('click',function(e){ remove_item_carrinho(e,item.id.split('-').pop()) })
+			item.removeEventListener('click',function(e){ remove_item_carrinho(e) })
 		})
 
 		botoes_remover_carrinho.forEach((item) => {
-			item.addEventListener('click',function(e){ remove_item_carrinho(e,item.id.split('-').pop()) })
+			item.addEventListener('click',function(e){ remove_item_carrinho(e) })
 		})
 }
 
-document.addEventListener('turbo:load',function(){
-	
-	consulta_produtos()
-
-})
+export {
+	remove_item_carrinho,
+	remove_lista_vazia,
+	consulta_produtos
+}

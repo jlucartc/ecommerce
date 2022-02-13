@@ -1,8 +1,1 @@
-import * as pedidos_comprador from './pedidos_comprador'
-import * as tela_cadastrar_produto from './tela_cadastrar_produto'
-import * as tela_carrinho from './tela_carrinho'
-import * as tela_estoque from './tela_estoque'
-import * as tela_landing_page from './tela_landing_page'
-import * as tela_pedidos_comprador from './tela_pedidos_comprador'
-import * as tela_pedidos_vendedor from './tela_pedidos_vendedor'
-import * as tela_ver_produto from './tela_ver_produto'
+import * as mapa_eventos from './mapa_eventos';

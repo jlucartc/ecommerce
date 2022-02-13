@@ -1,4 +1,4 @@
-var inicia_carroussel = function(){
+function inicia_carroussel(){
 	var imagens = Array.from(document.getElementsByClassName('carroussel-imagem'))
 	if(imagens.length > 0){
 		imagens[0].style.display = ''
@@ -6,7 +6,7 @@ var inicia_carroussel = function(){
 	}
 }
 
-var inicia_carroussel_fim = function(){
+function inicia_carroussel_fim(evento){
 	var imagens = Array.from(document.getElementsByClassName('carroussel-imagem'))
 	if(imagens.length > 0){
 		imagens[imagens.length-1].style.display = ''
@@ -14,7 +14,7 @@ var inicia_carroussel_fim = function(){
 	}
 }
 
-var move_carroussel_esquerda = function(){
+function move_carroussel_esquerda(evento){
 	var carroussel_imagens = Array.from(document.getElementsByClassName('carroussel-imagem'))
 	
 	if(carroussel_imagens.length > 0){
@@ -35,7 +35,7 @@ var move_carroussel_esquerda = function(){
 	}
 }
 
-var move_carroussel_direita = function(){
+function move_carroussel_direita(evento){
 	var carroussel_imagens = Array.from(document.getElementsByClassName('carroussel-imagem'))
 	
 	if(carroussel_imagens.length > 0){
@@ -56,12 +56,16 @@ var move_carroussel_direita = function(){
 	}
 }
 
-var visualizar_produto = function(elemento){
+function visualizar_produto(evento){
+	var elemento = evento.target.parentElement
+	while(elemento.className != 'oferta-produto'){
+		elemento = evento.parentElement
+	}
 	var link = Array.from(elemento.getElementsByClassName('oferta-produto-link'))[0]
 	link.dispatchEvent(new MouseEvent('click'))
 }
 
-var ajustar_imagens_ofertas = function(){
+function ajustar_imagens_ofertas(){
 	var ofertas_produtos_imagens = Array.from(document.getElementsByClassName('oferta-produto-imagem'))
 	ofertas_produtos_imagens.forEach((item) => {
 		item.style.backgroundImage = 'url('+item.src+')';
@@ -71,42 +75,11 @@ var ajustar_imagens_ofertas = function(){
 	})
 }
 
-var registra_eventos = function(){
-	
-		var carroussel_left = Array.from(document.getElementsByClassName('carroussel-cover-left'))
-		var carroussel_right = Array.from(document.getElementsByClassName('carroussel-cover-right'))
-		var oferta_produtos = Array.from(document.getElementsByClassName('oferta-produto'))
-
-		oferta_produtos.forEach((elemento) => {
-			elemento.removeEventListener('click',function(){ visualizar_produto(elemento) })
-		})
-
-		oferta_produtos.forEach((elemento) => {
-			elemento.addEventListener('click',function(){ visualizar_produto(elemento) })
-		})
-
-		carroussel_left.forEach((elemento) =>{
-			elemento.removeEventListener('click',function(){ move_carroussel_esquerda() })
-		})
-
-		carroussel_left.forEach((elemento) => {
-			elemento.addEventListener('click',function(){ move_carroussel_esquerda() })
-		})
-
-		carroussel_right.forEach((elemento) =>{
-			elemento.removeEventListener('click',function(){ move_carroussel_direita() })
-		})
-
-		carroussel_right.forEach((elemento) => {
-			elemento.addEventListener('click',function(){ move_carroussel_direita() })
-		})
-
+export {
+	inicia_carroussel,
+	inicia_carroussel_fim,
+	move_carroussel_direita,
+	move_carroussel_esquerda,
+	visualizar_produto,
+	ajustar_imagens_ofertas
 }
-
-document.addEventListener('turbo:load',function(){
-
-	registra_eventos()
-	inicia_carroussel()
-	ajustar_imagens_ofertas()
-
-})
