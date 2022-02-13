@@ -30,7 +30,6 @@ var desloca_carroussel_baixo = function(){
 }
 
 var desloca_carroussel = function(evento){
-	console.log(evento)
 	if(evento.deltaY > 0){
 		desloca_carroussel_baixo()
 	}else{
