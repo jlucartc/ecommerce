@@ -15,9 +15,11 @@
 
 		#produto-container{
 
+			position: relative;
+			overflow: hidden;
 			display: grid;
 			grid-template-columns: repeat(5,1fr);
-			grid-template-rows: repeat(4,1fr);
+			column-gap: 5px;
 			margin: 20px 0px 0px 0px;
 			width: 100%;
 
@@ -27,8 +29,8 @@
 				grid-template-columns: repeat(5,1fr);
 				grid-template-rows: repeat(4,1fr);
 
-				grid-column: 1 / 6;
-				grid-row: 1 / 4;
+				grid-column: 2 / 6;
+				grid-row: 1;
 
 				#produto-imagem-container{
 					grid-column: 1 / 3;
@@ -81,19 +83,50 @@
 
 			}
 			#produto-carroussel-imagens{
-				grid-column: 1 / 6;
-				grid-row: 4 / 5;
+				width: 100%;
+				position: absolute;
+				grid-column: 1 / 2;
+				grid-row: 1;
 				display: grid;
-				grid-template-columns: repeat(auto-fill,180px);
-				gap: 10px;
-				grid-template-rows: 180px;
+				grid-template-rows: repeat(auto-fill,minmax(60px,1fr));
+				grid-template-columns: minmax(40px,1fr);
+				gap: 5px;
 				overflow: hidden;
 
 				.produto-carroussel-imagem{
-					max-height: 100%;
+					max-width: 100%;
 				}
 
 			}
+
+			#produto-carroussel-cover{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				grid-column: 1 / 2;
+				grid-row: 1;
+				display: grid;
+				grid-template-rows: repeat(5,1fr);
+
+				#produto-carroussel-up{
+					grid-row: 1;
+
+					&:hover{
+						background-color: rgba(#999999,0.3)
+					}
+
+				}
+
+				#produto-carroussel-down{
+					grid-row: 5;
+
+					&:hover{
+						background-color: rgba(#999999,0.3)
+					}
+
+				}
+			}
+
 		}
 	}
 	#right{}

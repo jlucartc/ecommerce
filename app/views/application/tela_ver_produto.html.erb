@@ -4,7 +4,7 @@
 		<div id="produto-container">
 			<div id="produto-display">
 				<div id="produto-imagem-container">
-					<img id="produto-imagem" src="<%= asset_path('dummy')%>">
+					<img id="produto-imagem" src="<%= asset_path(@icone.path)%>">
 				</div>
 				<div id="produto-informacoes">
 					<div id="produto-nome">Nome do produto</div>
@@ -20,6 +20,10 @@
 				<img class="produto-carroussel-imagem" src="<%= asset_path('dummy')%>">
 				<img class="produto-carroussel-imagem" src="<%= asset_path('dummy')%>">
 				<img class="produto-carroussel-imagem" src="<%= asset_path('dummy')%>">
+			</div>
+			<div id="produto-carroussel-cover">
+				<div id="produto-carroussel-up"></div>
+				<div id="produto-carroussel-down"></div>
 			</div>
 		</div>
 	</div>

@@ -7,19 +7,23 @@ class Imagem < ApplicationRecord
 	attr_accessor :tempfile
 
 	def deleta_imagem
-		File.delete("./#{self.path}")
+		File.delete("app/assets/images/#{self.path}")
 	end
 
 	def check_unique_path
-		while File.exist?("app/assets/images/produtos/#{self.path}")
-			self.path = "#{SecureRandom.hex(20)}.#{self.path.split('.').last}"
+		while File.exist?("app/assets/images/#{self.path}")
+			self.path = "#{Imagem::assets_folder}#{SecureRandom.hex(20)}.#{self.path.split('.').last}"
 		end
 	end
 
 	def save_file
-		imagem = File.open("app/assets/images/produtos/#{self.path}",'wb')
+		imagem = File.open("app/assets/images/#{self.path}",'wb')
 		imagem.write(File.open(self.tempfile,'r').read)
 		imagem.close
+	end
+
+	def self.assets_folder
+		'produtos/'
 	end
 
 end

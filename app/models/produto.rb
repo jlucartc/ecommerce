@@ -11,7 +11,7 @@ class Produto < ApplicationRecord
 
 	def salva_imagens
 		if self.imagens.present?
-			self.imagens = self.imagens.map{|imagem| Imagem.new(produto_id: self.id, path: "#{SecureRandom.hex(20)}.#{imagem.content_type.split('/').last}", tempfile: imagem.tempfile)}
+			self.imagens = self.imagens.map{|imagem| Imagem.new(produto_id: self.id, path: "#{Imagem::assets_folder}#{SecureRandom.hex(20)}.#{imagem.content_type.split('/').last}", tempfile: imagem.tempfile)}
 			self.imagens.each{|imagem| imagem.save }
 		end
 	end

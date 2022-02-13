@@ -9,7 +9,7 @@ class ProdutoTest < ActiveSupport::TestCase
 
   test "as imagens de um produto devem ser deletadas quando ele for deletado" do
     imagem_path = imagens(:one)[:path]
-    File.open("app/assets/image/produtos/#{imagem_path}",'w')
+    File.open("app/assets/images/#{imagem_path}",'w')
     produtos(:one).destroy
     assert Imagem.where(produto_id: produtos(:one)[:id]).count == 0
     refute File.exist?(imagem_path)
