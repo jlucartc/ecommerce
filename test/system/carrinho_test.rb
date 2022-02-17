@@ -38,8 +38,7 @@ class CarrinhoTest < ApplicationSystemTestCase
   test "deve finalizar compra apenas se todos os produtos existirem" do
     sign_in usuarios(:one)
     adiciona_produto_inexistente_ao_carrinho
-    finaliza_compra
-    assert page.current_path == carrinho_path
+    assert_raises(Capybara::ElementNotFound){ finaliza_compra }
   end
 
   test "deve finalizar compra apenas se houver quantidade suficiente no estoque para todos os produtos" do
@@ -54,7 +53,7 @@ class CarrinhoTest < ApplicationSystemTestCase
     produto_id = adiciona_produto_ao_carrinho
     finaliza_compra
     visit pedidos_comprador_path
-    assert_selector "p", text: "Produto: #{produtos.filter{|produto| produto[:id].to_s == produto_id.to_s}.first[:nome]}"
+    assert_selector "p", class: "pedido-nome",text: produtos.filter{|produto| produto[:id].to_s == produto_id.to_s}.first[:nome]
   end
 
   test "o usuario deve ser redirecionado para a pagina de pedidos ao finalizar sua compra" do

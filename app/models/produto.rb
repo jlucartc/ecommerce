@@ -20,4 +20,8 @@ class Produto < ApplicationRecord
 		Imagem.where(produto_id: self.id).present?
 	end
 
+	def icone_path
+		self.has_imagem? ? Imagem.where(produto_id: self.id).first.path : 'dummy'
+	end
+
 end

@@ -26,4 +26,8 @@ class Imagem < ApplicationRecord
 		'produtos/'
 	end
 
+	def full_path
+		ActionController::Base.helpers.asset_path(self.path)
+	end
+
 end

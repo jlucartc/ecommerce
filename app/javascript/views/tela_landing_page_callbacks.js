@@ -57,9 +57,9 @@ function move_carroussel_direita(evento){
 }
 
 function visualizar_produto(evento){
-	var elemento = evento.target.parentElement
+	var elemento = evento.target
 	while(elemento.className != 'oferta-produto'){
-		elemento = evento.parentElement
+		elemento = elemento.parentElement
 	}
 	var link = Array.from(elemento.getElementsByClassName('oferta-produto-link'))[0]
 	link.dispatchEvent(new MouseEvent('click'))

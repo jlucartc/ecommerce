@@ -25,7 +25,7 @@ module CarrinhoHelper
 
   def adiciona_produto_esgotado_ao_carrinho
     visit landing_page_path
-    link = page.find(:css,".oferta-produto > .oferta-produto-link[href='#{ver_produto_path(produtos(:esgotado)[:id])}']",visible: false).ancestor(:css,'.oferta-produto')
+    link = page.find(:css,".oferta-produto > .oferta-produto-link[href='#{ver_produto_path(produtos(:esgotado).id)}']",visible: false).ancestor(:css,'.oferta-produto')
     link.click
     botao_adicionar = find_button(id: "botao-adicionar-carrinho-#{produtos(:esgotado).id}", match: :first)
     produto_id = recupera_id(botao_adicionar[:id])
@@ -35,7 +35,7 @@ module CarrinhoHelper
 
   def finaliza_compra
     visit carrinho_path
-    botao_finalizar_compra = find_button(class: 'botao-finalizar-compra', match: :first)
+    botao_finalizar_compra = find_button(id: 'finalizar-compra', match: :first)
     botao_finalizar_compra.click
   end
 

@@ -24,10 +24,13 @@ class ApplicationController < ActionController::Base
 	end
 
 	def consultar_produtos
-		produto = JSON.parse(Produto.where(id: params[:data]).select(:id,:nome,:preco,:quantidade).to_json)
-		produto.delete("created_at") if produto.present?
-		produto.delete("updated_at") if produto.present?
-		render json: produto
+		produtos = JSON.parse(Produto.where(id: params[:data]).select(:id,:nome,:preco,:quantidade).to_json)
+		produtos.delete("created_at") if produtos.present?
+		produtos.delete("updated_at") if produtos.present?
+		produtos = produtos.map do |produto|
+			produto.as_json.merge({"icone_path" => Imagem.where(produto_id: produto["id"]).present? ? Imagem.where(produto_id: produto["id"]).first.full_path : ActionController::Base.helpers.asset_path('dummy')})
+		end
+		render json: produtos
 	end
 
 end

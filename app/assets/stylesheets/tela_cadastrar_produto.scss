@@ -1,8 +1,27 @@
-#tela-cadastrar-produto{
-	#form-cadastro-produto{
-		display: flex;
-		flex-direction: column;
-		align-items: start;
-		justify-content: start;
+#novo-produto{
+	display: grid;
+	grid-template-columns: 1fr 3fr 1fr;
+
+	#left{}
+
+	#center{
+		#form-cadastro-produto{
+
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+
+			#produto-nome{}
+
+			#produto-preco{}
+
+			#produto-quantidade{}
+
+			#produto-imagens{}
+		}
 	}
+
+	#right{}
+
 }

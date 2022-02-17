@@ -1,4 +1,13 @@
+import * as helpers from './helpers'
+
 var carroussel_mouse_scroll = null
+
+function seleciona_imagem_carroussel(evento){
+	var imagem = document.getElementById('produto-imagem')
+	if(helpers.exists(imagem)){
+		imagem.src = evento.target.src
+	}
+}
 
 function adiciona_item_carrinho(evento){
 	var carrinho = 	JSON.parse(localStorage.getItem('carrinho'))
@@ -60,5 +69,6 @@ export {
 	desloca_carroussel,
 	interrompe_deslocamento_carroussel,
 	desloca_carroussel_continuo_cima,
-	desloca_carroussel_continuo_baixo
+	desloca_carroussel_continuo_baixo,
+	seleciona_imagem_carroussel
 }

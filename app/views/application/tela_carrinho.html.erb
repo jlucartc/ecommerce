@@ -5,9 +5,8 @@
 			<div id="lista-vazia">Não há produtos no carrinho</div>
 			<form action="<%= finalizar_compra_path %>" method="post" data-turbo="false">
 				<%= token_tag %>
-				<div id="carrinho-itens">
-				</div>
-				<button type="submit" class="botao-finalizar-compra">Finalizar compra</button>
+				<div id="carrinho-itens"></div>
+				<div id="itens-total"></div>
 			</form>
 		</div>
 	</div>

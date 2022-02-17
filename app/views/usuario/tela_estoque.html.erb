@@ -2,14 +2,25 @@
 	<div id="left"></div>
 	<div id="center">
 		<div id="controles">
+			<div id="estoque-header">Estoque</div>
 			<a id="criar-produto" href="<%= novo_produto_path %>">Novo produto</a>
 		</div>
 		<% if @produtos.present? %>
 			<div id="lista-produtos">
+				<div id="lista-produtos-header">
+					<div class="lista-produtos-header-item"></div>
+					<div class="lista-produtos-header-item">Nome</div>
+					<div class="lista-produtos-header-item">Preço</div>
+					<div class="lista-produtos-header-item">Qtd. estoque</div>
+				</div>
 				<% @produtos.each do |produto|%>
 					<div class="produto">
-						<div class="produto-nome"><%= produto.nome %></div>
-						<div class="produto-preco"><%= produto.preco %></div>
+						<div class="produto-icone-container">
+							<img class="produto-imagem" src="<%= asset_path(produto.icone_path) %>">
+						</div>
+						<p class="produto-nome"><%= produto.nome %></p>
+						<p class="produto-preco">R$ <%= produto.preco %></p>
+						<p class="produto-quantidade"><%= produto.quantidade %></p>
 						<div class="produto-controles"></div>
 					</div>
 				<% end %>
