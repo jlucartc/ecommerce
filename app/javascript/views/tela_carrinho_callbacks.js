@@ -31,7 +31,7 @@ function remove_item_carrinho(evento){
 	}
 }
 
-function atualizar_total_carrinho(){
+function atualizar_total_carrinho(evento){
 	var total = document.getElementById('valor-total-value')
 	total.innerText = soma_produtos_carrinho()
 }
@@ -176,7 +176,7 @@ function gera_itens_carrinho(itens){
 			itens_total.appendChild(html_finalizar_compra())
 		}
 	}
-	registra_eventos()
+	document.dispatchEvent(new Event('cria-carrinho'))
 }
 
 function consulta_produtos(){
@@ -228,5 +228,6 @@ export {
 	consulta_produtos,
 	aumenta_quantidade_item,
 	diminui_quantidade_item,
-	atualiza_total_item
+	atualiza_total_item,
+	atualizar_total_carrinho
 }

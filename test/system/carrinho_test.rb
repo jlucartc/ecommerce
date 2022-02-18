@@ -44,8 +44,7 @@ class CarrinhoTest < ApplicationSystemTestCase
   test "deve finalizar compra apenas se houver quantidade suficiente no estoque para todos os produtos" do
     sign_in usuarios(:one)
     adiciona_produto_esgotado_ao_carrinho
-    finaliza_compra
-    assert page.current_path == carrinho_path
+    assert_raises(Capybara::ElementNotFound){ finaliza_compra }
   end
 
   test "o comprador deve ser capaz de visualizar o pedido após a finalização da compra" do
@@ -61,6 +60,13 @@ class CarrinhoTest < ApplicationSystemTestCase
     adiciona_produto_ao_carrinho
     finaliza_compra
     assert page.current_path == pedidos_comprador_path
+  end
+
+  test "o carrinho só deve mostrar produtos que estão presentes no estoque" do
+    sign_in usuarios(:two)
+    adiciona_produto_esgotado_ao_carrinho
+    visit carrinho_path
+    assert_raises(Capybara::ElementNotFound){ page.find(:css,"#carrinho-item-#{produtos(:esgotado).id}") }
   end
 
 end

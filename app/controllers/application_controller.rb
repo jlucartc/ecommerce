@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def consultar_produtos
-		produtos = JSON.parse(Produto.where(id: params[:data]).select(:id,:nome,:preco,:quantidade).to_json)
+		produtos = JSON.parse(Produto.where('quantidade > 0 and id in (?)',params[:data]).select(:id,:nome,:preco,:quantidade).to_json)
 		produtos.delete("created_at") if produtos.present?
 		produtos.delete("updated_at") if produtos.present?
 		produtos = produtos.map do |produto|
