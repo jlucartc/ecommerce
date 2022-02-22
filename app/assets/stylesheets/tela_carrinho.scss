@@ -145,10 +145,21 @@
 					}
 
 					.item-carrinho-controles{
+						position: relative;
 						display: flex;
 						flex-direction: row;
 						align-items: center;
 						justify-content: center;
+
+						.item-carrinho-controles-button{
+							position: relative;
+							top: 0;
+							right: 0;
+						}
+
+						.item-carrinho-dropdown{
+
+						}
 
 						.item-carrinho-controles-remover{
 							background-color: #bbbbbb;

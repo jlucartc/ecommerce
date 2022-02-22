@@ -14,14 +14,24 @@
 					<div class="lista-produtos-header-item">Qtd. estoque</div>
 				</div>
 				<% @produtos.each do |produto|%>
-					<div class="produto">
+					<div class="produto" id="produto-<%= produto.id %>">
 						<div class="produto-icone-container">
 							<img class="produto-imagem" src="<%= asset_path(produto.icone_path) %>">
 						</div>
 						<p class="produto-nome"><%= produto.nome %></p>
 						<p class="produto-preco">R$ <%= produto.preco %></p>
 						<p class="produto-quantidade"><%= produto.quantidade %></p>
-						<div class="produto-controles"></div>
+						<div class="produto-controles">
+							<div class="produto-dropdown-button"></div>
+							<div class="produto-dropdown">
+								<div class="dropdown-form">
+									<button class="diminui-quantidade-estoque">-</button>
+									<input class="quantidade-estoque" type="number" min="0" step="1">
+									<button class="aumenta-quantidade-estoque">+</button>
+								</div>
+								<button class="estoque-dropdown-confirm-button">Adicionar</button>
+							</div>
+						</div>
 					</div>
 				<% end %>
 			</div>

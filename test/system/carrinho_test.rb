@@ -51,7 +51,7 @@ class CarrinhoTest < ApplicationSystemTestCase
     sign_in usuarios(:two)
     produto_id = adiciona_produto_ao_carrinho
     finaliza_compra
-    visit pedidos_comprador_path
+    visit minhas_compras_path
     assert_selector "p", class: "pedido-nome",text: produtos.filter{|produto| produto[:id].to_s == produto_id.to_s}.first[:nome]
   end
 
@@ -59,7 +59,7 @@ class CarrinhoTest < ApplicationSystemTestCase
     sign_in usuarios(:two)
     adiciona_produto_ao_carrinho
     finaliza_compra
-    assert page.current_path == pedidos_comprador_path
+    assert page.current_path == minhas_compras_path
   end
 
   test "o carrinho só deve mostrar produtos que estão presentes no estoque" do

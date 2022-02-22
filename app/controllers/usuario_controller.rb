@@ -10,11 +10,11 @@ class UsuarioController < ApplicationController
 	def tela_editar_produto
 	end
 
-	def tela_pedidos_vendedor
+	def minhas_vendas
 		@pedidos = Pedido.where(vendedor_id: current_usuario)
 	end
 
-	def tela_pedidos_comprador
+	def minhas_compras
 		@pedidos = Pedido.where(comprador_id: current_usuario)
 	end
 
@@ -75,7 +75,7 @@ class UsuarioController < ApplicationController
 
 			if pedidos.pluck(:id).exclude?(nil)
 				flash[:success] = "A compra foi finalizada com sucesso!"
-				redirect_to pedidos_comprador_path
+				redirect_to minhas_compras_path
 			else
 				flash[:danger] = 'Erro: a compra não pode ser efetuada.'
 				redirect_to carrinho_path
@@ -85,6 +85,11 @@ class UsuarioController < ApplicationController
 			redirect_to carrinho_path
 		end
 
+	end
+
+	def aumentar_estoque
+		produto = Produto.find(params[:data][:produto])
+		produto.update(quantidade: produto.quantidade + params[:data][:quantidade])
 	end
 
 	private

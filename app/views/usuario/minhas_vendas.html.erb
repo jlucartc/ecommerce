@@ -1,4 +1,4 @@
-<div id="pedidos-vendedor">
+<div id="minhas-vendas">
 	<div id="left"></div>
 	<div id="center">
 		<div id="pedidos-header">
@@ -25,7 +25,6 @@
 					<p class="pedido-quantidade"><%= pedido.quantidade %> </p>
 					<p class="pedido-total">R$ <%= pedido.preco * pedido.quantidade %> </p>
 					<p class="pedido-data"><%= pedido.created_at %></p>
-					<div class="pedido-controles">...</div>
 				</div>
 			<% end %>
 		</div>

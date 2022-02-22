@@ -16,8 +16,8 @@
       <a class="menu-link" href="<%= landing_page_path %>">Home</a>
       <a class="menu-link" href="<%= carrinho_path %>">Carrinho</a>
       <% if current_usuario.present? %>
-        <a class="menu-link" href="<%= pedidos_comprador_path %>">Minhas compras</a>
-        <a class="menu-link" href="<%= pedidos_vendedor_path %>">Minhas vendas</a>
+        <a class="menu-link" href="<%= minhas_compras_path %>">Minhas compras</a>
+        <a class="menu-link" href="<%= minhas_vendas_path %>">Minhas vendas</a>
         <a class="menu-link" href="<%= estoque_path %>">Estoque</a>
         <form class="menu-link-logout-form" action="<%= destroy_usuario_session_path %>" method="delete">
           <%= token_tag %>

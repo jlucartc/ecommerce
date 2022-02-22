@@ -75,7 +75,6 @@
 				box-shadow: 1px 1px 2px 0px #999999;
 				border-radius: 5px;
 				border: 1px solid #cccccc;
-				overflow: hidden;
 				
 				.produto-icone-container{
 					.produto-imagem{
@@ -99,6 +98,94 @@
 				}
 
 				.produto-controles{
+					position: relative;
+					grid-column: 11;
+
+					.produto-dropdown{
+						position: absolute;
+						width: 250px;
+						top: 30px;
+						right: 0px;
+						background-color: #cccccc;
+						z-index: 1;
+						display: grid;
+						grid-template-columns: 1fr;
+						gap: 10px;
+						padding: 10px 10px 10px 10px;
+						border-radius: 5px;
+						box-shadow: 1px 1px 2px 0px #999999;
+
+						.dropdown-form{
+							display: flex;
+							flex-direction: row;
+							align-items: center;
+							justify-content: center;
+
+							.diminui-quantidade-estoque{
+								padding: 5px 10px 5px 10px;
+								border-top-left-radius: 5px;
+								border-bottom-left-radius: 5px;
+								background-color: #eeeeee;
+								border: none;
+
+								&:hover{
+									background-color: #555555;
+									color: #ffffff;
+								}
+							}
+
+							.quantidade-estoque{
+								padding: 5px 10px 5px 10px;
+								background-color: #eeeeee;
+								border: none;
+							}
+
+							.aumenta-quantidade-estoque{
+								padding: 5px 10px 5px 10px;
+								border-top-right-radius: 5px;
+								border-bottom-right-radius: 5px;
+								background-color: #eeeeee;
+								border: none;
+
+								&:hover{
+									background-color: #555555;
+									color: #ffffff;
+								}
+							}
+
+						}
+
+						.estoque-dropdown-confirm-button{
+							width: 100%;
+							border: none;
+							background-color: #999999;
+							border-radius: 5px;
+							box-shadow: 1px 1px 2px 0px #999999;
+							padding: 5px 0px 5px 0px;
+
+							&:hover{
+								background-color: #555555;
+								color: #ffffff;
+							}
+						}
+
+					}
+
+					.produto-dropdown-button{
+						width: 30px;
+						height: 30px;
+						position: absolute;
+						top: 0px;
+						right: 0px;
+						border: none;
+						background-size: cover;
+						background-image: url("<%= asset_path('menu_normal')%>");
+
+						&:hover{
+							background-image: url("<%= asset_path('menu_hover') %>");
+						}
+					}
+
 				}
 			}
 		}
