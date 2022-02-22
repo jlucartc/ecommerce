@@ -1,0 +1,41 @@
+<form action="<%= buscar_produtos_path %>" method="get">
+	<div id="buscar-produtos">
+		<div id="left">
+			<div id="filtros">
+				<div id="filtro-preco">
+					<label id="filtro-preco-header">Faixa de preços</label>
+					<div id="filtro-preco-body">
+						<input id="preco-de" type="text" name="preco_de" placeholder="R$ 0">
+						<p>até</p>
+						<input id="preco-ate" type="text" name="preco_ate" placeholder="R$ 100">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="center">
+			<div id="grupo-busca">
+				<input id="busca-input" type="text" name="busca">
+				<button id="busca-botao" type="submit">Buscar</button>
+			</div>
+			<div id="lista-produtos">
+				<% if @produtos.present? %>
+					<% @produtos.each do |produto| %>
+						<div class="resultado-produto" id="resultado-produto-<%= produto.id %>">
+							<div class="resultado-produto-icone-container">
+								<img class="resultado-produto-icone" src="<%= asset_path(produto.icone_path) %>">
+							</div>
+							<p class="resultado-produto-nome"><%= produto.nome %> </p>
+							<p class="resultado-produto-preco">R$ <%= produto.preco %> </p>
+							<div class="resultado-produto-cover"></div>
+						</div>
+					<% end %>			
+				<% else %>
+					<div id="lista-vazia">
+						Nenhum resultado encontrado
+					</div>
+				<% end %>
+			</div>
+		</div>
+		<div id="right"></div>
+	</div>
+</form>

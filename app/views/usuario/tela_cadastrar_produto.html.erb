@@ -2,11 +2,12 @@
 	<div id="left"></div>
 	<div id="center">
 		<form id="form-cadastro-produto" action="<%= cadastrar_produto_path %>" method="post" enctype="multipart/form-data">
+			<h3>Cadastrar produto</h3>
 			<input id="produto-nome" type="text" name="nome" placeholder="nome">
 			<input id="produto-preco" type="number" min="0" step="0.01" name="preco" placeholder="preco">
 			<input id="produto-quantidade" type="number" min="1" step="1" name="quantidade" placeholder="quantidade">
-			<input id="produto-imagens" type="file" name="imagens[]" multiple placeholder="Imagens do produto">
-			<input type="submit" name="enviar" value="Cadastrar">
+			<input id="produto-imagens" type="file" name="imagens[]" multiple placeholder="Imagens do produto" accept=".jpeg, .png">
+			<input id="botao-cadastro" type="submit" name="enviar" value="Cadastrar">
 		</form>
 	</div>
 	<div id="right"></div>

@@ -11,7 +11,7 @@
 
 		#controles{
 			display: grid;
-			grid-template-columns: repeat(9,120px);
+			grid-template-columns: repeat(9,122px);
 			gap: 10px;
 			margin: 30px 0px 10px 0px;
 
@@ -71,15 +71,16 @@
 				grid-template-columns: repeat(11,100px);
 				grid-template-rows: 100px;
 				gap: 10px;
-				background-color: #dddddd;
+				background-color: #f0f0f0;
 				box-shadow: 1px 1px 2px 0px #999999;
 				border-radius: 5px;
-				border: 1px solid #cccccc;
 				
 				.produto-icone-container{
 					.produto-imagem{
 						aspect-ratio: 1;
 						max-width: 100%;
+						border-top-left-radius: 5px;
+						border-bottom-left-radius: 5px;
 					}
 				}
 
@@ -175,8 +176,8 @@
 						width: 30px;
 						height: 30px;
 						position: absolute;
-						top: 0px;
-						right: 0px;
+						top: 5px;
+						right: 5px;
 						border: none;
 						background-size: cover;
 						background-image: url("<%= asset_path('menu_normal')%>");

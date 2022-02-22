@@ -12,7 +12,20 @@ class ApplicationController < ActionController::Base
 		@produtos = Produto.all
 	end
 
-	def tela_buscar_produtos
+	def buscar_produtos
+		@produtos = Produto.all
+
+		preco_de = params[:preco_de]
+		preco_ate = params[:preco_ate]
+
+		if preco_ate.present? and preco_de.present?
+			@produtos = @produtos.where('preco >= ? and preco <= ?',preco_de,preco_ate)
+		elsif preco_ate.present?
+			@produtos = @produtos.where('preco <= ?',preco_ate)
+		elsif preco_de.present?
+			@produtos = @produtos.where('preco >= ?',preco_de)
+		end
+
 	end
 
 	def tela_carrinho

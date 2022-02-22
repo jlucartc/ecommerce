@@ -5,6 +5,7 @@ import * as tela_landing_page_callbacks from './tela_landing_page_callbacks'
 import * as minhas_compras_callbacks from './minhas_compras_callbacks'
 import * as minhas_vendas_callbacks from './minhas_vendas_callbacks'
 import * as estoque_callbacks from './estoque_callbacks'
+import * as buscar_produtos_callbacks from './buscar_produtos_callbacks'
 import * as helpers from './helpers'
 
 function remove_event_listener(item){
@@ -44,6 +45,7 @@ function adiciona_event_listener(item){
 }
 
 var mapa_classe_eventos_turbo_load = [
+	{classe:'resultado-produto-cover',evento:'click',callbacks:[buscar_produtos_callbacks.ver_produto]},
 	{classe:'estoque-dropdown-confirm-button',evento:'click',callbacks:[estoque_callbacks.aumentar_estoque]},
 	{classe:'diminui-quantidade-estoque',evento:'click',callbacks:[estoque_callbacks.diminui_quantidade]},
 	{classe:'aumenta-quantidade-estoque',evento:'click',callbacks:[estoque_callbacks.aumenta_quantidade]},

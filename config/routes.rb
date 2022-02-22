@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   get "/", to: "application#tela_landing_page", as: "landing_page"
-  get "/buscar_produtos", to: "application#tela_buscar_produtos", as: "buscar_produto"
+  get "/buscar_produtos", to: "application#buscar_produtos", as: "buscar_produtos"
   get "/carrinho", to: "application#tela_carrinho", as: "carrinho"
   get "/produtos/ver/:id", to: "application#tela_ver_produto", as: "ver_produto"
   get "/estoque/produtos/:id", to: "usuario#tela_ver_produto_estoque", as: "ver_produto_estoque"

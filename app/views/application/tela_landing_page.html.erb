@@ -1,10 +1,9 @@
 <div id="landing-page">
 	<div id="left"></div>
 	<div id="center">
-		<form id="grupo-busca" action="" method="post">
-			<%= token_tag %>
+		<form id="grupo-busca" action="<%= buscar_produtos_path %>" method="get">
 			<input id="busca-input" type="text" name="busca">
-			<input id="busca-botao" type="submit" name="submit" value="Buscar">
+			<input id="busca-botao" type="submit" value="Buscar">
 		</form>
 		<div id="carroussel">
 			<div class="carroussel-imagens-container">
