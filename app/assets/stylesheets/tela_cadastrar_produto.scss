@@ -11,7 +11,7 @@
 		grid-template-columns: repeat(12,1fr);
 
 		#form-cadastro-produto{
-			grid-column: 4 / 7;
+			grid-column: 5 / 9;
 			margin: 30px 0px 0px 0px;
 			padding: 20px 20px 20px 20px;
 			border-radius: 5px;
@@ -19,10 +19,16 @@
 			background-color: #f0f0f0;
 			display: flex;
 			flex-direction: column;
-			align-items: start;
-			justify-content: start;
+			align-items: center;
+			justify-content: center;
+
+			#form-titulo{
+				align-self: center;
+			}
 
 			#produto-nome{
+				box-sizing: border-box;
+				width: 100%;
 				padding: 5px 10px 5px 10px;
 				margin: 0px 0px 10px 0px;
 				border: none;
@@ -31,6 +37,8 @@
 			}
 
 			#produto-preco{
+				box-sizing: border-box;
+				width: 100%;
 				padding: 5px 10px 5px 10px;
 				margin: 0px 0px 10px 0px;
 				border: none;
@@ -39,6 +47,8 @@
 			}
 
 			#produto-quantidade{
+				box-sizing: border-box;
+				width: 100%;
 				padding: 5px 10px 5px 10px;
 				margin: 0px 0px 10px 0px;
 				border: none;
@@ -46,9 +56,15 @@
 				border-radius: 5px;
 			}
 
-			#produto-imagens{}
+			#produto-imagens{
+				box-sizing: border-box;
+				align-self: start;
+			}
 
 			#botao-cadastro{
+				box-sizing: border-box;
+				align-self: center;
+				width: 100%;
 				padding: 10px 10px 10px 10px;
 				margin: 10px 0px 10px 0px;
 				border: none;

@@ -72,7 +72,6 @@ var lista_executar_turbo_load = [
 	tela_carrinho_callbacks.consulta_produtos,
 	pedidos_comprador_callbacks.limpa_carrinho,
 	tela_landing_page_callbacks.inicia_carroussel,
-	tela_landing_page_callbacks.ajustar_imagens_ofertas,
 	estoque_callbacks.inicializa_dropdowns
 ]
 

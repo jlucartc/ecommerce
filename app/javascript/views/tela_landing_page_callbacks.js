@@ -65,21 +65,10 @@ function visualizar_produto(evento){
 	link.dispatchEvent(new MouseEvent('click'))
 }
 
-function ajustar_imagens_ofertas(){
-	var ofertas_produtos_imagens = Array.from(document.getElementsByClassName('oferta-produto-imagem'))
-	ofertas_produtos_imagens.forEach((item) => {
-		item.style.backgroundImage = 'url('+item.src+')';
-		item.style.backgroundPosition = 'center';
-		item.style.backgroundSize = 'cover';
-		item.src = '';
-	})
-}
-
 export {
 	inicia_carroussel,
 	inicia_carroussel_fim,
 	move_carroussel_direita,
 	move_carroussel_esquerda,
-	visualizar_produto,
-	ajustar_imagens_ofertas
+	visualizar_produto
 }

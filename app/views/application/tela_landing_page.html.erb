@@ -27,9 +27,13 @@
 						<div class="oferta-produto">
 							<a class="oferta-produto-link" href="<%= ver_produto_path(produto.id) %>"></a>
 							<% if produto.has_imagem? %>
-								<img class="oferta-produto-imagem" src='<%= asset_path("#{Imagem.where(produto_id: produto.id).first.path}")%>'>
+								<div class="oferta-produto-imagem">
+									<img src='<%= asset_path("#{Imagem.where(produto_id: produto.id).first.path}")%>'>
+								</div>
 							<% else %>
-								<img class="oferta-produto-imagem" src='<%= asset_path("dummy.png")%>'>
+								<div class="oferta-produto-imagem">
+									<img src='<%= asset_path("dummy.png") %>'>
+								</div>
 							<% end%>
 							<div class="oferta-produto-informacoes">
 								<div class="oferta-produto-informacoes-nome"><%= produto.nome %></div>
