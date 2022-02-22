@@ -17,17 +17,24 @@
 				<input id="busca-input" type="text" name="busca">
 				<button id="busca-botao" type="submit">Buscar</button>
 			</div>
+			<div id="apresentacao-resultados">
+				<button id="apresentar-resultados-grade" type="button"></button>
+				<button id="apresentar-resultados-lista" type="button"></button>
+			</div>
 			<div id="lista-produtos">
 				<% if @produtos.present? %>
 					<% @produtos.each do |produto| %>
-						<div class="resultado-produto" id="resultado-produto-<%= produto.id %>">
-							<div class="resultado-produto-icone-container">
-								<img class="resultado-produto-icone" src="<%= asset_path(produto.icone_path) %>">
-							</div>
-							<p class="resultado-produto-nome"><%= produto.nome %> </p>
-							<p class="resultado-produto-preco">R$ <%= produto.preco %> </p>
-							<div class="resultado-produto-cover"></div>
+					<div class="resultado-produto" id="resultado-produto-<%= produto.id %>">
+						<div class="resultado-produto-imagem-container">
+							<img class="resultado-produto-imagem" src="<%= asset_path(produto.icone_path) %>">
 						</div>
+						<div class="resultado-produto-informacoes">
+							<div class="resultado-produto-nome"><%= produto.nome %></div>
+							<div class="resultado-produto-preco">R$ <%= produto.preco %></div>
+							<div class="resultado-produto-estoque"><%= produto.quantidade %> unidades disponíveis</div>
+						</div>
+						<div class="resultado-produto-cover"></div>
+					</div>
 					<% end %>			
 				<% else %>
 					<div id="lista-vazia">

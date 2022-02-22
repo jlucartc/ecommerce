@@ -46,6 +46,7 @@ function adiciona_event_listener(item){
 
 var mapa_classe_eventos_turbo_load = [
 	{classe:'resultado-produto-cover',evento:'click',callbacks:[buscar_produtos_callbacks.ver_produto]},
+	{classe:'resultado-produto-cover',evento:'click',callbacks:[buscar_produtos_callbacks.ver_produto]},
 	{classe:'estoque-dropdown-confirm-button',evento:'click',callbacks:[estoque_callbacks.aumentar_estoque]},
 	{classe:'diminui-quantidade-estoque',evento:'click',callbacks:[estoque_callbacks.diminui_quantidade]},
 	{classe:'aumenta-quantidade-estoque',evento:'click',callbacks:[estoque_callbacks.aumenta_quantidade]},
@@ -59,6 +60,8 @@ var mapa_classe_eventos_turbo_load = [
 ]
 
 var mapa_id_eventos_turbo_load = [
+	{id:'apresentar-resultados-grade',evento:'click',callbacks:[buscar_produtos_callbacks.apresentar_grade]},
+	{id:'apresentar-resultados-lista',evento:'click',callbacks:[buscar_produtos_callbacks.apresentar_lista]},
 	{id:'produto-carroussel-imagens',evento:'wheel',callbacks:[tela_ver_produto_callbacks.desloca_carroussel]},
 	{id:'produto-carroussel-up',evento:'mouseleave',callbacks:[tela_ver_produto_callbacks.interrompe_deslocamento_carroussel]},
 	{id:'produto-carroussel-up',evento:'mouseup',callbacks:[tela_ver_produto_callbacks.interrompe_deslocamento_carroussel]},
