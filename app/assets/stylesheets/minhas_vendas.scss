@@ -47,12 +47,13 @@
 				background-color: #f0f0f0;
 
 				.pedido-imagem-container{
+					overflow: hidden;
+					border-top-left-radius: 5px;
+					border-bottom-left-radius: 5px;
 					background-color: #ffffff;
 					position: relative;
 
 					.pedido-imagem{
-						border-top-left-radius: 5px;
-						border-bottom-left-radius: 5px;
 						max-width: 100%;
 						max-height: 100%;
 						position: absolute;
@@ -97,6 +98,17 @@
 			}
 
 
+		}
+
+		#lista-vazia{
+			padding: 10px 10px 10px 10px;
+			border-radius: 5px;
+			background-color: #dddddd;
+			box-shadow: 1px 1px 2px 0px #999999;
+			width: 300px;
+			align-self: center;
+			text-align: center;
+			background-color: #eeeeee;
 		}
 
 	}

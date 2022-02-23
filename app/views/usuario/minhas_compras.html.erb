@@ -7,19 +7,23 @@
 			</div>
 		</div>
 		<div id="lista-pedidos">
-			<% @pedidos.each do |pedido| %>
-			<div class="pedido">
-				<div class="pedido-imagem-container">
-					<img class="pedido-imagem" src="<%= asset_path(pedido.icone_path) %>">
+			<% if @pedidos.present? %>
+				<% @pedidos.each do |pedido| %>
+				<div class="pedido">
+					<div class="pedido-imagem-container">
+						<img class="pedido-imagem" src="<%= asset_path(pedido.icone_path) %>">
+					</div>
+					<div class="pedido-informacoes">
+						<p class="pedido-nome"><%= pedido.nome %> </p>
+						<p class="pedido-preco">R$ <%= pedido.preco %> </p>
+						<p class="pedido-quantidade"><%= pedido.quantidade %> unidades</p>
+						<p class="pedido-data"><%= pedido.created_at %></p>
+						<p class="pedido-total">R$ <%= pedido.preco * pedido.quantidade %> </p>
+					</div>
 				</div>
-				<div class="pedido-informacoes">
-					<p class="pedido-nome"><%= pedido.nome %> </p>
-					<p class="pedido-preco">R$ <%= pedido.preco %> </p>
-					<p class="pedido-quantidade"><%= pedido.quantidade %> unidades</p>
-					<p class="pedido-data"><%= pedido.created_at %></p>
-					<p class="pedido-total">R$ <%= pedido.preco * pedido.quantidade %> </p>
-				</div>
-			</div>
+				<% end %>
+			<% else %>
+				<div id="lista-vazia">Não há compras cadastradas</div>
 			<% end %>
 		</div>
 	</div>
