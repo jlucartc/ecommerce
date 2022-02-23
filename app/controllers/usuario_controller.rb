@@ -11,11 +11,11 @@ class UsuarioController < ApplicationController
 	end
 
 	def minhas_vendas
-		@pedidos = Pedido.where(vendedor_id: current_usuario)
+		@pedidos = Pedido.where(vendedor_id: current_usuario).order(created_at: :desc)
 	end
 
 	def minhas_compras
-		@pedidos = Pedido.where(comprador_id: current_usuario)
+		@pedidos = Pedido.where(comprador_id: current_usuario).order(created_at: :desc)
 	end
 
 	def tela_estoque

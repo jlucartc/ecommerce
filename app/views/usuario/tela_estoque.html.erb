@@ -3,34 +3,29 @@
 	<div id="center">
 		<div id="controles">
 			<div id="estoque-header">Estoque</div>
-			<a id="criar-produto" href="<%= novo_produto_path %>">Novo produto</a>
+			<form id="criar-produto-container" action="<%= novo_produto_path %>" method="get">
+				<button id="criar-produto" type="submit" >Novo produto</button>
+			</form>
 		</div>
 		<% if @produtos.present? %>
 			<div id="lista-produtos">
-				<div id="lista-produtos-header">
-					<div class="lista-produtos-header-item"></div>
-					<div class="lista-produtos-header-item">Nome</div>
-					<div class="lista-produtos-header-item">Preço</div>
-					<div class="lista-produtos-header-item">Qtd. estoque</div>
-				</div>
 				<% @produtos.each do |produto|%>
 					<div class="produto" id="produto-<%= produto.id %>">
-						<div class="produto-icone-container">
+						<div class="produto-imagem-container">
 							<img class="produto-imagem" src="<%= asset_path(produto.icone_path) %>">
 						</div>
-						<p class="produto-nome"><%= produto.nome %></p>
-						<p class="produto-preco">R$ <%= produto.preco %></p>
-						<p class="produto-quantidade"><%= produto.quantidade %></p>
-						<div class="produto-controles">
-							<div class="produto-dropdown-button"></div>
-							<div class="produto-dropdown">
-								<div class="dropdown-form">
-									<button class="diminui-quantidade-estoque">-</button>
-									<input class="quantidade-estoque" type="number" min="0" step="1">
-									<button class="aumenta-quantidade-estoque">+</button>
-								</div>
-								<button class="estoque-dropdown-confirm-button">Adicionar</button>
+						<div class="produto-informacoes">
+							<div class="produto-nome"><%= produto.nome %></div>
+							<div class="produto-preco">R$ <%= produto.preco %></div>
+							<div class="produto-quantidade"><%= produto.quantidade %> produtos no estoque</div>
+						</div>
+						<div class="produto-adiciona-estoque">
+							<div class="produto-adiciona-estoque-grupo">
+								<button class="produto-adiciona-estoque-menos">-</button>
+								<input class="produto-adiciona-estoque-quantidade" min="0" max="<%= produto.quantidade %>" type="text" name="">
+								<button class="produto-adiciona-estoque-mais">+</button>	
 							</div>
+							<button class="produto-adiciona-estoque-confirmar">Adicionar</button>
 						</div>
 					</div>
 				<% end %>

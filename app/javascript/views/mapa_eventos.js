@@ -47,10 +47,9 @@ function adiciona_event_listener(item){
 var mapa_classe_eventos_turbo_load = [
 	{classe:'resultado-produto-cover',evento:'click',callbacks:[buscar_produtos_callbacks.ver_produto]},
 	{classe:'resultado-produto-cover',evento:'click',callbacks:[buscar_produtos_callbacks.ver_produto]},
-	{classe:'estoque-dropdown-confirm-button',evento:'click',callbacks:[estoque_callbacks.aumentar_estoque]},
-	{classe:'diminui-quantidade-estoque',evento:'click',callbacks:[estoque_callbacks.diminui_quantidade]},
-	{classe:'aumenta-quantidade-estoque',evento:'click',callbacks:[estoque_callbacks.aumenta_quantidade]},
-	{classe:'produto-dropdown-button',evento:'click',callbacks:[estoque_callbacks.alterna_dropdown]},
+	{classe:'produto-adiciona-estoque-confirmar',evento:'click',callbacks:[estoque_callbacks.aumentar_estoque]},
+	{classe:'produto-adiciona-estoque-menos',evento:'click',callbacks:[estoque_callbacks.diminui_quantidade]},
+	{classe:'produto-adiciona-estoque-mais',evento:'click',callbacks:[estoque_callbacks.aumenta_quantidade]},
 	{classe:'produto-carroussel-imagem',evento:'click',callbacks: [tela_ver_produto_callbacks.seleciona_imagem_carroussel]},
 	{classe:'item-carrinho-controles-remover',evento:'click',callbacks:[tela_carrinho_callbacks.remove_item_carrinho]},
 	{classe:'botao-adicionar-carrinho',evento:'click',callbacks:[tela_ver_produto_callbacks.adiciona_item_carrinho]},
@@ -74,8 +73,7 @@ var mapa_id_eventos_turbo_load = [
 var lista_executar_turbo_load = [
 	tela_carrinho_callbacks.consulta_produtos,
 	pedidos_comprador_callbacks.limpa_carrinho,
-	tela_landing_page_callbacks.inicia_carroussel,
-	estoque_callbacks.inicializa_dropdowns
+	tela_landing_page_callbacks.inicia_carroussel
 ]
 
 var mapa_classe_eventos_cria_carrinho = [
