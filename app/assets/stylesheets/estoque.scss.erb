@@ -23,8 +23,9 @@
 			#estoque-header{
 				display: flex;
 				flex-direction: column;
-				align-items: center;
+				align-items: start;
 				justify-content: center;
+				text-align: left;
 				font-size: 1.5em;
 				font-weight: bold;
 				margin: 0px 20px 0px 0px;
@@ -135,8 +136,14 @@
 					}
 
 					.produto-estoque-controles{
+						display: flex;
+						flex-direction: row;
+						align-item: start;
+						justify-content: start;
 						
 						.produto-estoque-editar{
+							margin: 0px 10px 0px 0px;
+							font-size: 1.1em;
 							border: none;
 							border-radius: 5px;
 							background-color: #2255ff;
@@ -152,6 +159,7 @@
 						
 						.produto-estoque-excluir{
 							border: none;
+							font-size: 1.1em;
 							border-radius: 5px;
 							background-color: #ff5522;
 							color: #f0f0f0;

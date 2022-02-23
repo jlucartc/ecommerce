@@ -8,9 +8,32 @@ class UsuarioController < ApplicationController
 	end
 
 	def confirmar_edicao_produto
+		produto = Produto.where(id: params[:produto_id], usuario_id: current_usuario.id).first
+		
+		if produto.present?
+			produto.nome = params[:nome] if params[:nome].present?
+			produto.preco = params[:preco] if params[:preco].present?
+
+			if produto.save
+				flash[:success] = "Produto '#{produto.nome}' atualizado com sucesso!"
+			else
+				flash[:danger] = "Produto '#{produto.nome}' não pode ser atualizado."
+			end
+
+		else
+			flash[:danger] = "Produto não foi encontrado"
+		end
+
+		redirect_to estoque_path
+
 	end
 
 	def tela_editar_produto
+		@produto = Produto.where(id: params[:id], usuario_id: current_usuario.id ).first
+		if !@produto.present?
+			flash[:danger] = "Produto não encontrado"
+			redirect_to estoque_path
+		end
 	end
 
 	def excluir_produto

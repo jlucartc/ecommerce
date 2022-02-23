@@ -19,7 +19,9 @@
 							<div class="produto-preco">R$ <%= produto.preco %></div>
 							<div class="produto-quantidade"><%= produto.quantidade %> produtos no estoque</div>
 							<div class="produto-estoque-controles">
-								<button class="produto-estoque-editar">Editar</button>
+								<form action="<%= editar_produto_path(produto.id) %>" method="get">
+									<button type="submit" class="produto-estoque-editar">Editar</button>
+								</form>
 								<button class="produto-estoque-excluir">Excluir</button>
 							</div>
 						</div>

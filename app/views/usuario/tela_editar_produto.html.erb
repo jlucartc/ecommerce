@@ -1,1 +1,26 @@
-tela_editar_produto
+<div id="editar-produto">
+	<div id="left"></div>
+	<div id="center">
+		<div id="titulo">Editar produto</div>
+		<div id="card">
+			<div id="header"></div>
+			<form action="<%= confirmar_edicao_produto_path %>" method="post">
+			<div id="body">
+				<%= token_tag %>
+				<input type="hidden" name="produto_id" value="<%= @produto.id %>">
+				<input id="produto-nome" type="text" name="nome" placeholder="nome do produto" value="<%= @produto.nome %>">
+				<input id="produto-preco" type="number" min="0" step="0.01" name="preco" placeholder="preço" value="<%= @produto.preco %>">
+			</div>
+			<div id="footer">
+				<div id="botoes">
+					<button id="salvar" type="submit" >Salvar</button>
+				</form>
+				<form action="<%= estoque_path %>" method="get">
+					<button id="cancelar" type="submit">Cancelar</button>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="right"></div>
+</div>

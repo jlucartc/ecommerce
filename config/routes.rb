@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get "/minhas-compras", to: "usuario#minhas_compras", as: "minhas_compras"
   get "/estoque", to: "usuario#tela_estoque", as: "estoque"
   get "/confirmacao_pedido", to: "usuario#tela_confirmacao_pedido", as: "confirmacao_pedido"
+  post "/confirmar_edicao_produto", to: "usuario#confirmar_edicao_produto", as: "confirmar_edicao_produto"
   post "/aumentar_estoque", to: "usuario#aumentar_estoque", as: "aumentar_estoque"
   post "/produtos/novo/confirmar", to: "usuario#cadastrar_produto", as: "cadastrar_produto"
   post "/remover_produto", to: "usuario#remover_produto_estoque", as: "remover_produto"
