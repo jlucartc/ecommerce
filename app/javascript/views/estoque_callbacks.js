@@ -1,5 +1,13 @@
 import * as helpers from './helpers'
 
+function esconder_modal(evento){
+	evento.target.parentElement.parentElement.parentElement.className = 'produto-estoque-modal-escondido'
+}
+
+function exibir_modal(evento){
+	Array.from(evento.target.parentElement.parentElement.parentElement.getElementsByClassName('produto-estoque-modal-escondido'))[0].className = "produto-estoque-modal"
+}
+
 function aumenta_quantidade(evento){
 	var input = evento.target.previousElementSibling
 	if(parseInt(input.value) != parseInt(input.value)){
@@ -36,5 +44,7 @@ function aumentar_estoque(evento){
 export {
 	aumenta_quantidade,
 	diminui_quantidade,
-	aumentar_estoque
+	aumentar_estoque,
+	esconder_modal,
+	exibir_modal
 }

@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   post "/remover_produto", to: "usuario#remover_produto_estoque", as: "remover_produto"
   post "/finalizar_compra", to: "usuario#finalizar_compra", as: "finalizar_compra"
   post "/consultar_produtos", to: "application#consultar_produtos", as: "consultar_produtos"
+  post "/produtos/excluir", to: "usuario#excluir_produto", as: "excluir_produto"
   root "application#tela_landing_page"
 end

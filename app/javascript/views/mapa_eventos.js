@@ -45,6 +45,8 @@ function adiciona_event_listener(item){
 }
 
 var mapa_classe_eventos_turbo_load = [
+	{classe:'excluir-produto-cancelar',evento:'click',callbacks:[estoque_callbacks.esconder_modal]},
+	{classe:'produto-estoque-excluir',evento:'click',callbacks:[estoque_callbacks.exibir_modal]},
 	{classe:'resultado-produto-cover',evento:'click',callbacks:[buscar_produtos_callbacks.ver_produto]},
 	{classe:'resultado-produto-cover',evento:'click',callbacks:[buscar_produtos_callbacks.ver_produto]},
 	{classe:'produto-adiciona-estoque-confirmar',evento:'click',callbacks:[estoque_callbacks.aumentar_estoque]},

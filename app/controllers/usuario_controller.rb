@@ -7,7 +7,24 @@ class UsuarioController < ApplicationController
 	def tela_cadastrar_produto
 	end
 
+	def confirmar_edicao_produto
+	end
+
 	def tela_editar_produto
+	end
+
+	def excluir_produto
+		produto = Produto.where(id: params[:produto_id], usuario_id: current_usuario.id).first
+		if produto.present?
+			if produto.destroy
+				flash[:success] = "Produto '#{produto.nome}' excluído com sucesso!"
+			else
+				flash[:danger] = "Produto '#{produto.nome}' não pode ser excluído."
+			end
+		else
+			flash[:danger] = "Produto '#{produto.nome}' não foi encontrado."
+		end
+		redirect_to estoque_path
 	end
 
 	def minhas_vendas

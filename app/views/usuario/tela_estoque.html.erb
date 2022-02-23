@@ -18,6 +18,10 @@
 							<div class="produto-nome"><%= produto.nome %></div>
 							<div class="produto-preco">R$ <%= produto.preco %></div>
 							<div class="produto-quantidade"><%= produto.quantidade %> produtos no estoque</div>
+							<div class="produto-estoque-controles">
+								<button class="produto-estoque-editar">Editar</button>
+								<button class="produto-estoque-excluir">Excluir</button>
+							</div>
 						</div>
 						<div class="produto-adiciona-estoque">
 							<div class="produto-adiciona-estoque-grupo">
@@ -26,6 +30,22 @@
 								<button class="produto-adiciona-estoque-mais">+</button>	
 							</div>
 							<button class="produto-adiciona-estoque-confirmar">Adicionar</button>
+						</div>
+						<div class="produto-estoque-modal-escondido">
+							<div class="card">
+								<div class="header">Excluir produto</div>
+								<div class="body">
+									Deseja excluir o produto "<%= produto.nome %>"?
+								</div>
+								<div class="footer">
+									<form action="<%= excluir_produto_path %>" method="post">
+										<%= token_tag %>
+										<input type="hidden" name="produto_id" value="<%= produto.id %>">
+										<button class="excluir-produto-confirmar" type="submit">Sim</button>
+									</form>
+									<button class="excluir-produto-cancelar" type="button">Não</button>	
+								</div>
+							</div>
 						</div>
 					</div>
 				<% end %>

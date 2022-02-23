@@ -25,7 +25,7 @@ class Pedido < ApplicationRecord
 	end
 
 	def icone_path
-		if Produto.find(self.produto_id).present?
+		if Produto.where(id: self.produto_id).present?
 			Produto.find(self.produto_id).icone_path
 		else
 			'dummy'
