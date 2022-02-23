@@ -7,25 +7,17 @@
 			</div>
 		</div>
 		<div id="lista-pedidos">
-			<div id="lista-pedidos-header">
-				<div class="lista-pedidos-header-item"></div>
-				<div class="lista-pedidos-header-item" id="produto-nome-header">Nome</div>
-				<div class="lista-pedidos-header-item">Preço</div>
-				<div class="lista-pedidos-header-item">Quantidade</div>
-				<div class="lista-pedidos-header-item">Total</div>
-				<div class="lista-pedidos-header-item" id="produto-data-header">Data</div>
-			</div>
 			<% @pedidos.each do |pedido| %>
 			<div class="pedido">
-				<div class="pedido-icone-container">
-					<img class="pedido-icone" src="<%= asset_path(pedido.icone_path) %>">
+				<div class="pedido-imagem-container">
+					<img class="pedido-imagem" src="<%= asset_path(pedido.icone_path) %>">
 				</div>
-				<p class="pedido-nome"><%= pedido.nome %> </p>
-				<p class="pedido-preco">R$ <%= pedido.preco %> </p>
-				<p class="pedido-quantidade"><%= pedido.quantidade %> </p>
-				<p class="pedido-total">R$ <%= pedido.preco * pedido.quantidade %> </p>
-				<p class="pedido-data"><%= pedido.created_at %></p>
-				<div class="pedido-controles">
+				<div class="pedido-informacoes">
+					<p class="pedido-nome"><%= pedido.nome %> </p>
+					<p class="pedido-preco">R$ <%= pedido.preco %> </p>
+					<p class="pedido-quantidade"><%= pedido.quantidade %> unidades</p>
+					<p class="pedido-data"><%= pedido.created_at %></p>
+					<p class="pedido-total">Total: R$ <%= pedido.preco * pedido.quantidade %> </p>
 				</div>
 			</div>
 			<% end %>

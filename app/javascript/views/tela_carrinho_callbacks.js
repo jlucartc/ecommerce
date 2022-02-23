@@ -1,14 +1,14 @@
 function aumenta_quantidade_item(evento){
 	var input = evento.target.parentElement.getElementsByClassName('item-carrinho-quantidade-input')[0]
-	if(input.value < input.max){
-		input.value = parseFloat(input.value) + 1
+	if(parseInt(input.value) < parseInt(input.max)){
+		input.value = parseInt(input.value) + 1
 	}
 }
 
 function diminui_quantidade_item(evento){
 	var input = evento.target.parentElement.getElementsByClassName('item-carrinho-quantidade-input')[0]
-	if(input.value > 1){
-		input.value = parseFloat(input.value) - 1
+	if(parseInt(input.value) > 1){
+		input.value = parseInt(input.value) - 1
 	}
 }
 
