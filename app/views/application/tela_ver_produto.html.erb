@@ -7,8 +7,8 @@
 					<img id="produto-imagem" src="<%= asset_path(@icone.path)%>">
 				</div>
 				<div id="produto-informacoes">
-					<div id="produto-nome">Nome do produto</div>
-					<div id="produto-preco">R$ 1000.00</div>
+					<div id="produto-nome"><%= @produto.nome %></div>
+					<div id="produto-preco">R$ <%= @produto.preco %></div>
 					<div id="produto-informacoes-controles">
 						<button class="botao-adicionar-carrinho" id="botao-adicionar-carrinho-<%= params[:id]%>">Adicionar ao carrinho</button>
 					</div>

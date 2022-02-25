@@ -19,17 +19,16 @@ class UsuarioController < ApplicationController
 			else
 				flash[:danger] = "Produto '#{produto.nome}' não pode ser atualizado."
 			end
-
 		else
 			flash[:danger] = "Produto não foi encontrado"
 		end
 
 		redirect_to estoque_path
-
 	end
 
 	def tela_editar_produto
 		@produto = Produto.where(id: params[:id], usuario_id: current_usuario.id ).first
+
 		if !@produto.present?
 			flash[:danger] = "Produto não encontrado"
 			redirect_to estoque_path
@@ -67,7 +66,7 @@ class UsuarioController < ApplicationController
 
 	def cadastrar_produto
 		produto = cadastrar_produto_parametros(params)
-		produto = Produto.new(nome: produto[:nome], preco: produto[:preco], quantidade: produto[:quantidade], imagens: produto[:imagens], usuario_id: current_usuario.id)
+		produto = new_produto_from_params(produto)
 		if produto.save
 			flash[:success] = "Produto criado com sucesso"
 			redirect_to estoque_path
@@ -85,14 +84,8 @@ class UsuarioController < ApplicationController
 		
 		if produtos.present?
 			pedidos = produtos.map do |item|
-				
 				produto = Produto.find(item[:id])
-
-				pedido = Pedido.new(
-					produto_id: item[:id],
-					comprador_id: current_usuario.id,
-					quantidade: item[:quantidade]
-				)
+				pedido = new_pedido_from_params(item)
 
 				if produto.present?
 					pedido.nome = produto.nome
@@ -101,17 +94,9 @@ class UsuarioController < ApplicationController
 				end
 
 				pedido
-
 			end
 			
-			pedidos.each do |pedido|
-				if pedido.invalid?
-					pedidos.each{|linha| linha.delete if linha.id? }
-					break
-				else
-					pedido.save
-				end
-			end
+			checa_validade_pedidos(pedidos)
 
 			if pedidos.pluck(:id).exclude?(nil)
 				flash[:success] = "A compra foi finalizada com sucesso!"
@@ -133,6 +118,34 @@ class UsuarioController < ApplicationController
 	end
 
 	private
+
+		def new_produto_from_params(params)
+			Produto.new(
+				nome: params[:nome],
+				preco: params[:preco],
+				quantidade: params[:quantidade],
+				imagens: params[:imagens],
+				usuario_id: current_usuario.id)
+		end
+
+		def new_pedido_from_params(params)
+			Pedido.new(
+				produto_id: params[:id],
+				comprador_id: current_usuario.id,
+				quantidade: params[:quantidade]
+			)
+		end
+
+		def checa_validade_pedidos(pedidos)
+			pedidos.each do |pedido|
+				if pedido.invalid?
+					pedidos.each{|linha| linha.delete if linha.id? }
+					break
+				else
+					pedido.save
+				end
+			end
+		end
 
 		def finalizar_compra_produtos_parametros(params)
 			params.permit(produtos: [:id,:quantidade]).to_h[:produtos]

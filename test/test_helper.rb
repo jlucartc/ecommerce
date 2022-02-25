@@ -2,7 +2,7 @@ ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
 require 'simplecov'
-require 'carrinho_helper'
+require 'helpers'
 SimpleCov.start
 
 class ActiveSupport::TestCase

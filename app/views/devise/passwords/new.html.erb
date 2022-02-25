@@ -8,8 +8,7 @@
         <%= render "devise/shared/error_messages", resource: resource %>
 
         <div class="field">
-          <%= f.label :email %>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <input type="email" name="usuario[email]" autofocus="autofocus" placeholder="Digite seu email">
         </div>
 
         <div class="actions">

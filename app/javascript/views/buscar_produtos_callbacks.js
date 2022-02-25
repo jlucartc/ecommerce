@@ -1,13 +1,15 @@
 function apresentar_grade(evento){
 	var lista = document.getElementById('lista-produtos')
-	console.log(lista.id)
-	lista.id = 'grade-produtos';
+	if(lista != null && lista != undefined){
+		lista.id = 'grade-produtos';
+	}
 }
 
 function apresentar_lista(evento){
 	var grade = document.getElementById('grade-produtos')
-	console.log(grade.id)
-	grade.id = 'lista-produtos'
+	if(grade != null && grade != undefined){
+		grade.id = 'lista-produtos'
+	}
 }
 
 function ver_produto(evento){

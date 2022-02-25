@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
     <div id="menu">
-      <img class="menu-icone" src="<%= asset_path('dummy') %>">
+      <div class="menu-icone-container">
+        <img class="menu-icone" src="<%= asset_path('dummy') %>">
+      </div>
       <a class="menu-link" href="<%= landing_page_path %>">Home</a>
       <a class="menu-link" href="<%= carrinho_path %>">Carrinho</a>
       <% if current_usuario.present? %>
-        <a class="menu-link" href="<%= minhas_compras_path %>">Minhas compras</a>
-        <a class="menu-link" href="<%= minhas_vendas_path %>">Minhas vendas</a>
+        <a class="menu-link" href="<%= minhas_compras_path %>">Compras</a>
+        <a class="menu-link" href="<%= minhas_vendas_path %>">Vendas</a>
         <a class="menu-link" href="<%= estoque_path %>">Estoque</a>
         <form class="menu-link-logout-form" action="<%= destroy_usuario_session_path %>" method="delete">
           <%= token_tag %>

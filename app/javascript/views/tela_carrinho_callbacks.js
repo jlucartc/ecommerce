@@ -16,7 +16,7 @@ function atualiza_total_item(evento){
 	var input = evento.target.parentElement.getElementsByClassName('item-carrinho-quantidade-input')[0]
 	var preco = evento.target.parentElement.parentElement.getElementsByClassName('item-carrinho-informacoes-preco')[0]
 	var total = evento.target.parentElement.parentElement.getElementsByClassName('item-carrinho-total')[0]
-	total.innerText = 'R$ '+(parseFloat(preco.innerText.split(' ').pop()) * parseFloat(input.value))
+	total.innerText = 'R$ '+(parseFloat(preco.innerText.split(' ').pop()) * parseFloat(input.value)).toFixed(2)
 }
 
 function remove_item_carrinho(evento){
@@ -44,18 +44,7 @@ function soma_produtos_carrinho(){
 		var quantidade = parseFloat(item.getElementsByClassName('item-carrinho-quantidade-input')[0].value)
 		total += preco * quantidade
 	})
-	return total
-}
-
-
-function html_carrinho_header(){
-	var carrinho_header = document.createElement('div')
-	var carrinho_titulo = document.createElement('div')
-	carrinho_header.id = 'carrinho-header'
-	carrinho_titulo.id = 'carrinho-titulo'
-	carrinho_titulo.innerText = "Carrinho"
-	carrinho_header.appendChild(carrinho_titulo)
-	return carrinho_header
+	return total.toFixed(2)
 }
 
 function html_total_compra(){
@@ -131,8 +120,8 @@ function html_item_carrinho(data){
 	aumenta_quantidade.innerText = '+'
 	diminui_quantidade.innerText = '-'
 	nome.innerText = data.nome
-	preco.innerText = 'R$ '+data.preco
-	total.innerText = 'R$ '+(input_quantidade.value * data.preco)
+	preco.innerText = 'R$ '+data.preco.toFixed(2)
+	total.innerText = 'R$ '+(input_quantidade.value * data.preco).toFixed(2)
 
 	icone_link.appendChild(icone_imagem)
 	icone_container.appendChild(icone_link)
@@ -145,8 +134,8 @@ function html_item_carrinho(data){
 	carrinho_item.appendChild(icone_container)
 	carrinho_item.appendChild(informacoes)
 	carrinho_item.appendChild(quantidade)
-	carrinho_item.appendChild(controles)
 	carrinho_item.appendChild(total)
+	carrinho_item.appendChild(controles)
 	carrinho_item.appendChild(input_produto_id)
 
 	return carrinho_item
@@ -165,7 +154,6 @@ function gera_itens_carrinho(itens){
 	var lista_carrinho = document.getElementById('lista-carrinho')
 	if(itens_container != null && itens != undefined){
 		if(itens != null && itens != undefined && typeof(itens) == 'object' && itens.length > 0){
-			lista_carrinho.insertBefore(html_carrinho_header(),lista_carrinho.children[0])
 			itens.forEach((item) => {
 				remove_lista_vazia()
 				if(document.getElementById('item-carrinho-controles-remover-'+item.id) == null){

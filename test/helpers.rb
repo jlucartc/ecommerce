@@ -55,7 +55,15 @@ module CarrinhoHelper
   end
 
   def apaga_arquivo_de_imagem_teste
-    File.delete("app/assets/images/produtos/imagem_teste.png")
+    File.delete("app/assets/images/produtos/imagem_teste.png") if File.exist?("app/assets/images/produtos/imagem_teste.png")
+  end
+
+  def desabilita_autenticacao_csrf
+    ActionController::Base.allow_forgery_protection = false
+  end
+
+  def habilita_autenticacao_csrf
+    ActionController::Base.allow_forgery_protection = true
   end
 
 end

@@ -12,12 +12,25 @@
 		justify-content: start;
 
 		#lista-vazia{
-			background-color: #dddddd;
-			padding: 10px 20px 10px 20px;
+			padding: 10px 10px 10px 10px;
 			border-radius: 5px;
+			background-color: #e0e0e0;
 			box-shadow: 1px 1px 2px 0px #999999;
+			width: 300px;
+			align-self: center;
 			text-align: center;
-			font-size: 1.2em;
+		}
+
+		#carrinho-header{
+			margin: 40px 0px 0px 0px;
+			align-self: start;
+			display: grid;
+			grid-template-columns: repeat(12,100px);
+
+			#carrinho-titulo{
+				font-size: 1.5em;
+				font-weight: bold;
+			}
 		}
 
 		#lista-carrinho{
@@ -26,21 +39,10 @@
 			align-items: center;
 			justify-content: start;
 			width: 100%;
-			margin: 40px 0px 10px 0px;
+			margin: 20px 0px 30px 0px;
 
 			form {
 				width: 100%;
-			}
-
-			#carrinho-header{
-				align-self: start;
-				display: grid;
-				grid-template-columns: repeat(10,90px);
-
-				#carrinho-titulo{
-					font-size: 1.5em;
-					font-weight: bold;
-				}
 			}
 
 			#carrinho-itens{
@@ -52,11 +54,10 @@
 
 				.carrinho-item{
 					display: grid;
-					grid-template-columns: repeat(10,90px) ;
+					grid-template-columns: repeat(10,120px) ;
 					grid-template-rows: 90px;
 					border-radius: 5px;
-					background-color: #f0f0f0;
-					gap: 10px;
+					background-color: #e0e0e0;
 					margin: 10px 0px 10px 0px;
 					box-shadow: 1px 1px 2px 0px #999999;
 
@@ -74,12 +75,11 @@
 					}
 
 					.item-carrinho-informacoes{
+						margin: 0px 0px 0px 20px;
 						display: flex;
 						flex-direction: column;
 						align-items: start;
 						justify-content: start;
-						overflow: hidden;
-						text-overflow: ellipsis;
 
 						.item-carrinho-informacoes-nome{
 							margin: 10px 0px 5px 0px;

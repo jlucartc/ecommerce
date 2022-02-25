@@ -32,6 +32,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def tela_ver_produto
+		@produto = Produto.find(params[:id])
 		@icone = Imagem.where(produto_id: params[:id]).present? ? Imagem.where(produto_id: params[:id]).first : Imagem.new(path: 'dummy.png', produto_id: params[:id])
 		@imagens = Imagem.where(produto_id: params[:id])
 	end
