@@ -1,3 +1,5 @@
+@media screen and (min-width: 1270px){
+
 #landing-page{
 
 	display: grid;
@@ -55,6 +57,7 @@
 			margin: 10px 0px 10px 0px;
 
 			.carroussel-imagens-container{
+				position: relative;
 
 				.carroussel-imagem{
 					position: absolute;
@@ -207,4 +210,223 @@
 		}
 	}
 	#right{}
+}
+
+}
+
+@media screen and (max-width: 1270px){
+
+#landing-page{
+
+	display: grid;
+	grid-template-columns: 1fr;
+	font-family: helvetica;
+	
+	#center{
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: start;
+		margin: 0px 20px 10px 20px;
+
+		#grupo-busca{
+
+			display: grid;
+			grid-template-columns: 8fr 2fr;
+			grid-template-rows: 1fr;
+			width: 100%;
+			background-color: rgba(#f0f0f0,1);
+			box-shadow: 1px 1px 2px 0px rgba(#999999,1);
+			margin: 50px 0px 10px 0px;
+			border-radius: 5px;
+			overflow: hidden;
+
+
+			#busca-input{
+				flex-grow: 8;
+				border: none;
+				background-color: #ffffff;
+				padding: 5px 0px 5px 0px;
+				font-size: 1.2em;
+			}
+
+			#busca-botao{
+				flex-grow: 2;
+				border: none;
+				background-color: #e0e0e0;
+				font-size: 1.2em;
+				padding: 5px 0px 5px 0px;
+
+				&:hover{
+					background-color: #cccccc;
+				}
+
+			}
+		}
+
+		#carroussel{
+			position: relative;
+			margin: 10px 0px 10px 0px;
+			width: 100%;
+			aspect-ratio: 3;
+
+			.carroussel-imagens-container{
+				width: 100%;
+				height: 100%;
+				position: relative;
+
+				.carroussel-imagem{
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					width: 100%;
+				}
+
+			}
+
+			.carroussel-cover{
+				position: absolute;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-color: transparent;
+				display: grid;
+				grid-template-columns: 1fr 3fr 1fr;
+				grid-template-rows: 1fr;
+
+				.carroussel-cover-left{
+					grid-column: 1;
+					background-color: transparent;
+
+					&:hover{
+						background-color: rgba(#999999,0.3);
+					}
+
+				}
+				.carroussel-cover-right{
+					grid-column: 3;
+					background-color: transparent;
+
+					&:hover{
+						background-color: rgba(#999999,0.3);
+					}
+
+				}
+			}
+
+		}
+
+		#ofertas{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			margin: 10px 10px 10px 10px;
+			
+			
+			.oferta{
+
+				display: flex;
+				flex-direction: column;
+				align-items: start;
+				justify-content: start;
+				width: 100%;
+
+				.oferta-header{
+					align-self: start;
+					text-align: start;
+					font-size: 1.5em;
+					margin: 10px 0px 10px 0px;
+				}
+
+				.oferta-produtos{
+					width: 100%;
+					display: grid;
+					gap: 10px;
+					grid-template-columns: repeat(auto-fill,192px);
+					grid-template-rows: repeat(auto-fill,360px);
+
+					.oferta-produto{
+						border-top-left-radius: 5px;
+						border-top-right-radius: 5px;
+						border-bottom-left-radius: 5px;
+						border-bottom-right-radius: 5px;
+						box-shadow: 1px 1px 2px 0px #999999;
+						display: grid;
+						overflow: hidden;
+						grid-template-columns: 1fr;
+						grid-template-rows: repeat(20,18px);
+						background-color: #e0e0e0;
+
+						&:hover{
+							background-color: rgba(#999999,1);
+							filter: opacity(0.8);
+						}
+
+						.oferta-produto-link{
+							display: none;
+						}
+
+						.oferta-produto-imagem{
+							grid-row: 1 / 17;
+							max-height: 100%;
+							max-width: 100%;
+							border-top-left-radius: 5px;
+							border-top-right-radius: 5px;
+							position: relative;
+							display: flex;
+							flex-direction: column;
+							align-items: center;
+							justify-content: center;
+
+							img {
+								aspect-ratio: 2 / 3;
+								max-height: 100%;
+								max-width: 100%;
+								position: absolute;
+								top: 0;
+								right: 0;
+								bottom: 0;
+								left: 0;
+							}
+
+						}
+
+						.oferta-produto-informacoes{
+							grid-row: 17 / 21;
+							margin: 10px 10px 10px 10px;
+							display: flex;
+							flex-direction: column;
+
+							.oferta-produto-informacoes-nome{
+								white-space: nowrap;
+								overflow: hidden;
+								text-overflow: ellipsis;
+								width: 172px;
+								max-height: 18px;
+								font-size: 1em;
+								margin: 0px 0px 10px 0px;
+							}
+							.oferta-produto-informacoes-preco{
+								white-space: nowrap;
+								overflow: hidden;
+								text-overflow: ellipsis;
+								width: 172px;
+								max-height: 22px;
+								font-size: 1.2em;
+								font-weight: bold;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+}
+
 }

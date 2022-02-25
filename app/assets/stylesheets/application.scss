@@ -24,54 +24,113 @@ body {
   margin: 0px;
 }
 
+@media screen and (min-width: 1270px){
 
-#menu {
-  
-  display: grid;
-  grid-template-columns: repeat(20,1fr);
-  grid-template-rows: 64px;
-  padding: 0px 25px 0px 25px;
-  background-color: #aaaaaa;
+  #menu {
+    
+    display: grid;
+    grid-template-columns: repeat(20,1fr);
+    grid-template-rows: 64px;
+    padding: 0px 25px 0px 25px;
+    background-color: #aaaaaa;
 
-  .menu-icone-container{
-    width: 64px;
-    height: 64px;
+    .menu-icone-container{
+      width: 64px;
+      height: 64px;
 
-    .menu-icone{
+      .menu-icone{
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .menu-link{
       width: 100%;
-      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: inherit;
+      font-size: 1em;
+      font-family: helvetica;
+      color: rgba(#111111,1);
+
+      &:hover{
+        font-weight: bold;
+      }
+
     }
+
+    .menu-link-logout-form{
+      grid-column: 20;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .menu-link-logout{
+        border: none;
+        background-color: transparent;
+      }
+    }
+
   }
 
-  .menu-link{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: inherit;
-    font-size: 1em;
-    font-family: helvetica;
-    color: rgba(#111111,1);
+}
 
-    &:hover{
-      font-weight: bold;
+@media screen and (max-width: 1270px){
+
+  #menu {
+    
+    display: grid;
+    grid-template-columns: repeat(20,1fr);
+    grid-template-rows: 64px;
+    padding: 0px 25px 0px 25px;
+    background-color: #aaaaaa;
+
+    .menu-icone-container{
+      width: 64px;
+      height: 64px;
+
+      .menu-icone{
+        width: 100%;
+        height: 100%;
+      }
     }
 
-  }
+    .menu-link{
+      margin: 0px 10px 0px 10px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: inherit;
+      font-size: 1em;
+      font-family: helvetica;
+      color: rgba(#111111,1);
 
-  .menu-link-logout-form{
-    grid-column: 20;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+      &:hover{
+        font-weight: bold;
+      }
 
-    .menu-link-logout{
-      border: none;
-      background-color: transparent;
     }
+
+    .menu-link-logout-form{
+      grid-column: 20;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .menu-link-logout{
+        border: none;
+        background-color: transparent;
+      }
+    }
+
   }
 
 }
