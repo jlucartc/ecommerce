@@ -30,13 +30,17 @@ body {
     
     display: grid;
     grid-template-columns: repeat(20,1fr);
-    grid-template-rows: 64px;
+    grid-template-rows: 84px;
     padding: 0px 25px 0px 25px;
     background-color: #aaaaaa;
 
     .menu-icone-container{
       width: 64px;
       height: 64px;
+      margin: 10px 10px 10px 10px;
+      box-sizing: border-box;
+      border-radius: 5px;
+      overflow: hidden;
 
       .menu-icone{
         width: 100%;
@@ -52,9 +56,10 @@ body {
       justify-content: center;
       text-decoration: none;
       color: inherit;
-      font-size: 1em;
+      font-size: 1.4em;
       font-family: helvetica;
       color: rgba(#111111,1);
+      margin: 0px 10px 0px 10px;
 
       &:hover{
         font-weight: bold;
@@ -108,7 +113,7 @@ body {
       justify-content: center;
       text-decoration: none;
       color: inherit;
-      font-size: 1em;
+      font-size: 1.4em;
       font-family: helvetica;
       color: rgba(#111111,1);
 

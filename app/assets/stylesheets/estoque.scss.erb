@@ -1,332 +1,196 @@
-#estoque{
-	display: grid;
-	grid-template-columns: 1fr 3fr 1fr;
-	font-family: helvetica;
+@media screen and (min-width: 760px){
 
-	#left{}
-	
-	#center{
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		padding: 0px 0px 30px 0px;
+	#estoque{
+		position: relative;
+		display: grid;
+		grid-template-columns: 1fr 3fr 1fr;
+		font-family: helvetica;
 
-		#controles{
-			width: 100%;
-			display: grid;
-			grid-template-columns: 142px 1fr 142px;
-			grid-template-rows: 70px;
-			gap: 10px;
-			margin: 30px 0px 0px 0px;
-
-			#estoque-header{
-				display: flex;
-				flex-direction: column;
-				align-items: start;
-				justify-content: center;
-				text-align: left;
-				font-size: 1.5em;
-				font-weight: bold;
-				margin: 0px 20px 0px 0px;
-			}
-
-			#criar-produto-container {
-				grid-column: -1;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-
-				#criar-produto {
-					font-size: 1em;
-					border: none;
-					width: 100%;
-					margin: 10px 0px 10px 0px;
-					padding: 10px 10px 10px 10px;
-					background-color: #dddddd;
-					box-shadow: 1px 1px 2px 0px #999999;
-					text-align: center;
-					box-sizing: border-box;
-					border-radius: 5px;
-
-					&:hover{
-						background-color: #999999;
-						color: #ffffff;
-						box-shadow: none;
-					}
-
-				}
-
-			}
-
-		}
-
-		#lista-produtos{
-			width: 100%;
+		#left{}
+		
+		#center{
 			display: flex;
 			flex-direction: column;
-			align-items: start;
+			align-items: center;
 			justify-content: center;
+			padding: 0px 0px 30px 0px;
 
-			#lista-produtos-header{
-				background-color: #dddddd;
-				display: grid;
-				grid-template-columns: repeat(11,100px);
-				gap: 10px;
-				border-radius: 5px;
-
-				.lista-produtos-header-item{
-					padding: 10px 0px 10px 0px;
-					text-align: center;
-					font-weight: bold;
-				}
-			}
-
-			.produto{
-				display: grid;
-				grid-template-columns: 120px 300px 200px repeat(auto-fill,100px);
-				grid-template-rows: 180px;
+			#controles{
 				width: 100%;
-				border-radius: 5px;
-				background-color: #e0e0e0;
-				box-shadow: 1px 1px 2px 0px #999999;
-				margin: 0px 0px 20px 0px;
+				display: grid;
+				grid-template-columns: 142px 1fr 142px;
+				grid-template-rows: 70px;
+				gap: 10px;
+				margin: 30px 0px 0px 0px;
 
-				.produto-imagem-container{
-					overflow: hidden;
-					border-top-left-radius: 5px;
-					border-bottom-left-radius: 5px;
-					background-color: #ffffff;
-					position: relative;
-					.produto-imagem{
-						max-width: 100%;
-						max-height: 100%;
-						position: absolute;
-						top: 0;
-						bottom: 0;
-						left: 0;
-						right: 0;
-					}
-				}
-				
-				.produto-informacoes{
-					padding: 10px 10px 10px 10px;
-
-					.produto-nome-input{
-						border-radius: 5px;
-					}
-
-					.produto-preco-input{
-						border-radius: 5px;
-					}
-
-					.produto-nome{
-						margin: 0px 0px 10px 0px;
-					}
-
-					.produto-preco{
-						font-size: 1.2em;
-						font-weight: bold;
-						margin: 0px 0px 10px 0px;
-					}
-
-					.produto-quantidade{
-						font-size: 0.8em;
-						margin: 0px 0px 10px 0px;
-					}
-
-					.produto-estoque-controles{
-						display: flex;
-						flex-direction: row;
-						align-item: start;
-						justify-content: start;
-						
-						.produto-estoque-editar{
-							margin: 0px 10px 0px 0px;
-							font-size: 1.1em;
-							border: none;
-							border-radius: 5px;
-							background-color: #2255ff;
-							color: #f0f0f0;
-							box-shadow: 1px 1px 2px 0px #999999;
-							padding: 5px 10px 5px 10px;
-
-							&:hover{
-								background-color: #0033ff;
-							}
-
-						}
-						
-						.produto-estoque-excluir{
-							border: none;
-							font-size: 1.1em;
-							border-radius: 5px;
-							background-color: #ff5522;
-							color: #f0f0f0;
-							box-shadow: 1px 1px 2px 0px #999999;
-							padding: 5px 10px 5px 10px;
-
-							&:hover{
-								background-color: #ff3300;
-							}
-
-						}
-
-						.produto-estoque-cancelar{
-							border: none;
-							border-radius: 5px;
-							background-color: #ff5522;
-							color: #f0f0f0;
-							box-shadow: 1px 1px 2px 0px #999999;
-							padding: 5px 10px 5px 10px;
-
-							&:hover{
-								background-color: #ff3300;
-							}
-
-						}
-
-						.produto-estoque-salvar{
-							border: none;
-							border-radius: 5px;
-							background-color: #11bb33;
-							color: #f0f0f0;
-							box-shadow: 1px 1px 2px 0px #999999;
-							padding: 5px 10px 5px 10px;
-
-							&:hover{
-								background-color: #119933;
-							}
-						}
-
-					}
-
-				}
-				
-				.produto-adiciona-estoque{
-					margin: 10px 0px 0px 0px;
+				#estoque-header{
 					display: flex;
 					flex-direction: column;
-					align-items: center;
-
-					.produto-adiciona-estoque-grupo{
-						border-radius: 5px;
-						background-color: #fdfdfd;
-						display: flex;
-						flex-direction: row;
-						align-items: center;
-						justify-content: center;
-						box-shadow: 1px 1px 2px 0px #999999;
-
-						.produto-adiciona-estoque-menos{
-							border-top-left-radius: 5px;
-							border-bottom-left-radius: 5px;
-							background-color: #fdfdfd;
-							border: none;
-							height: 28px;
-							box-sizing: border-box;
-							padding: 0px 10px 0px 10px;
-
-							&:hover{
-								background-color: #999999;
-								color: #ffffff;
-							}
-						}
-
-						.produto-adiciona-estoque-quantidade{
-							background-color: #fdfdfd;
-							border: none;
-							font-size: 1.2em;
-							width: 100px;
-							box-sizing: border-box;
-						}
-						
-						.produto-adiciona-estoque-mais{
-							border-top-right-radius: 5px;
-							border-bottom-right-radius: 5px;
-							background-color: #fdfdfd;
-							border: none;
-							height: 28px;
-							box-sizing: border-box;
-							padding: 0px 10px 0px 10px;
-
-							&:hover{
-								background-color: #999999;
-								color: #ffffff;
-							}
-
-						}
-					}
-
-					.produto-adiciona-estoque-confirmar{
-						border: none;
-						background-color: #999999;
-						color: #ffffff;
-						font-size: 1.1em;
-						margin: 20px 0px 0px 0px;
-						padding: 5px 10px 5px 10px;
-						width: 152px;
-						box-sizing: border-box;
-						border-radius: 5px;
-						box-shadow: 1px 1px 2px 0px #444444;
-
-						&:hover{
-							background-color: #333333;
-						}
-
-					}
+					align-items: start;
+					justify-content: center;
+					text-align: left;
+					font-size: 1.5em;
+					font-weight: bold;
+					margin: 0px 20px 0px 0px;
 				}
 
-				.produto-estoque-modal-escondido{
-					visibility: hidden;
-				}
-
-				.produto-estoque-modal{
-					position: absolute;
-					top: 0;
-					bottom: 0;
-					left: 0;
-					right: 0;
-					width: 100vw;
-					height: 100vh;
-					background-color: rgba(#999999,0.3);
-					z-index: 1;
+				#criar-produto-container {
+					grid-column: -1;
 					display: flex;
 					flex-direction: column;
 					align-items: center;
 					justify-content: center;
 
-					.card{
+					#criar-produto {
+						font-size: 1em;
+						border: none;
+						width: 100%;
+						margin: 10px 0px 10px 0px;
 						padding: 10px 10px 10px 10px;
-						background-color: #f0f0f0;
+						background-color: #dddddd;
 						box-shadow: 1px 1px 2px 0px #999999;
+						text-align: center;
+						box-sizing: border-box;
 						border-radius: 5px;
-						display: flex;
-						flex-direction: column;
-						align-items: start;
-						justify-content: start;
 
-						.header{
+						&:hover{
+							background-color: #999999;
+							color: #ffffff;
+							box-shadow: none;
+						}
+
+					}
+
+				}
+
+			}
+
+			#lista-produtos{
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: start;
+				justify-content: center;
+
+				#lista-produtos-header{
+					background-color: #dddddd;
+					display: grid;
+					grid-template-columns: repeat(11,100px);
+					gap: 10px;
+					border-radius: 5px;
+
+					.lista-produtos-header-item{
+						padding: 10px 0px 10px 0px;
+						text-align: center;
+						font-weight: bold;
+					}
+				}
+
+				.produto{
+					display: grid;
+					grid-template-columns: 120px 300px 200px repeat(auto-fill,100px);
+					grid-template-rows: 180px;
+					width: 100%;
+					border-radius: 5px;
+					background-color: #e0e0e0;
+					box-shadow: 1px 1px 2px 0px #999999;
+					margin: 0px 0px 20px 0px;
+
+					.produto-imagem-container{
+						overflow: hidden;
+						border-top-left-radius: 5px;
+						border-bottom-left-radius: 5px;
+						background-color: #ffffff;
+						position: relative;
+						.produto-imagem{
+							max-width: 100%;
+							max-height: 100%;
+							position: absolute;
+							top: 0;
+							bottom: 0;
+							left: 0;
+							right: 0;
+						}
+					}
+					
+					.produto-informacoes{
+						padding: 10px 10px 10px 10px;
+
+						.produto-nome-input{
+							border-radius: 5px;
+						}
+
+						.produto-preco-input{
+							border-radius: 5px;
+						}
+
+						.produto-nome{
+							margin: 0px 0px 10px 0px;
+						}
+
+						.produto-preco{
 							font-size: 1.2em;
 							font-weight: bold;
 							margin: 0px 0px 10px 0px;
 						}
 
-						.body{
-							margin: 0px 0px 20px 0px;
+						.produto-quantidade{
+							font-size: 0.8em;
+							margin: 0px 0px 10px 0px;
 						}
 
-						.footer{
-							
+						.produto-estoque-controles{
 							display: flex;
 							flex-direction: row;
-							align-items: center;
-							justify-content: center;
-
-							.excluir-produto-confirmar{
+							align-item: start;
+							justify-content: start;
+							
+							.produto-estoque-editar{
 								margin: 0px 10px 0px 0px;
-								font-size: 1.2em;
+								font-size: 1.1em;
+								border: none;
+								border-radius: 5px;
+								background-color: #2255ff;
+								color: #f0f0f0;
+								box-shadow: 1px 1px 2px 0px #999999;
+								padding: 5px 10px 5px 10px;
+
+								&:hover{
+									background-color: #0033ff;
+								}
+
+							}
+							
+							.produto-estoque-excluir{
+								border: none;
+								font-size: 1.1em;
+								border-radius: 5px;
+								background-color: #ff5522;
+								color: #f0f0f0;
+								box-shadow: 1px 1px 2px 0px #999999;
+								padding: 5px 10px 5px 10px;
+
+								&:hover{
+									background-color: #ff3300;
+								}
+
+							}
+
+							.produto-estoque-cancelar{
+								border: none;
+								border-radius: 5px;
+								background-color: #ff5522;
+								color: #f0f0f0;
+								box-shadow: 1px 1px 2px 0px #999999;
+								padding: 5px 10px 5px 10px;
+
+								&:hover{
+									background-color: #ff3300;
+								}
+
+							}
+
+							.produto-estoque-salvar{
 								border: none;
 								border-radius: 5px;
 								background-color: #11bb33;
@@ -339,8 +203,346 @@
 								}
 							}
 
-							.excluir-produto-cancelar{
+						}
+
+					}
+					
+					.produto-adiciona-estoque{
+						margin: 10px 0px 0px 0px;
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+
+						.produto-adiciona-estoque-grupo{
+							border-radius: 5px;
+							background-color: #fdfdfd;
+							display: flex;
+							flex-direction: row;
+							align-items: center;
+							justify-content: center;
+							box-shadow: 1px 1px 2px 0px #999999;
+
+							.produto-adiciona-estoque-menos{
+								border-top-left-radius: 5px;
+								border-bottom-left-radius: 5px;
+								background-color: #fdfdfd;
+								border: none;
+								height: 28px;
+								box-sizing: border-box;
+								padding: 0px 10px 0px 10px;
+
+								&:hover{
+									background-color: #999999;
+									color: #ffffff;
+								}
+							}
+
+							.produto-adiciona-estoque-quantidade{
+								background-color: #fdfdfd;
+								border: none;
 								font-size: 1.2em;
+								width: 100px;
+								box-sizing: border-box;
+							}
+							
+							.produto-adiciona-estoque-mais{
+								border-top-right-radius: 5px;
+								border-bottom-right-radius: 5px;
+								background-color: #fdfdfd;
+								border: none;
+								height: 28px;
+								box-sizing: border-box;
+								padding: 0px 10px 0px 10px;
+
+								&:hover{
+									background-color: #999999;
+									color: #ffffff;
+								}
+
+							}
+						}
+
+						.produto-adiciona-estoque-confirmar{
+							border: none;
+							background-color: #999999;
+							color: #ffffff;
+							font-size: 1.1em;
+							margin: 20px 0px 0px 0px;
+							padding: 5px 10px 5px 10px;
+							width: 152px;
+							box-sizing: border-box;
+							border-radius: 5px;
+							box-shadow: 1px 1px 2px 0px #444444;
+
+							&:hover{
+								background-color: #333333;
+							}
+
+						}
+					}
+
+					.produto-estoque-modal-escondido{
+						visibility: hidden;
+					}
+
+					.produto-estoque-modal{
+						position: absolute;
+						top: 0;
+						bottom: 0;
+						left: 0;
+						right: 0;
+						width: 100vw;
+						height: 100%;
+						background-color: rgba(#999999,0.3);
+						z-index: 1;
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						justify-content: start;
+
+						.card{
+							position: fixed;
+							margin: 30px 0px 0px 0px;
+							padding: 10px 10px 10px 10px;
+							background-color: #f0f0f0;
+							box-shadow: 1px 1px 2px 0px #999999;
+							border-radius: 5px;
+							display: flex;
+							flex-direction: column;
+							align-items: start;
+							justify-content: start;
+
+							.header{
+								font-size: 1.2em;
+								font-weight: bold;
+								margin: 0px 0px 10px 0px;
+							}
+
+							.body{
+								margin: 0px 0px 20px 0px;
+							}
+
+							.footer{
+								
+								display: flex;
+								flex-direction: row;
+								align-items: center;
+								justify-content: center;
+
+								.excluir-produto-confirmar{
+									margin: 0px 10px 0px 0px;
+									font-size: 1.2em;
+									border: none;
+									border-radius: 5px;
+									background-color: #11bb33;
+									color: #f0f0f0;
+									box-shadow: 1px 1px 2px 0px #999999;
+									padding: 5px 10px 5px 10px;
+
+									&:hover{
+										background-color: #119933;
+									}
+								}
+
+								.excluir-produto-cancelar{
+									font-size: 1.2em;
+									border: none;
+									border-radius: 5px;
+									background-color: #ff5522;
+									color: #f0f0f0;
+									box-shadow: 1px 1px 2px 0px #999999;
+									padding: 5px 10px 5px 10px;
+
+									&:hover{
+										background-color: #ff3300;
+									}
+								}
+							}
+						}
+					}
+
+				}
+
+			}
+
+			#lista-vazia{
+				padding: 10px 10px 10px 10px;
+				border-radius: 5px;
+				background-color: #e0e0e0;
+				box-shadow: 1px 1px 2px 0px #999999;
+				width: 300px;
+				align-self: center;
+				text-align: center;
+			}
+		}
+		
+		#right{}
+
+	}
+
+}
+
+@media screen and (min-width: 450px) and (max-width: 760px){
+
+	#estoque{
+		position: relative;
+		display: grid;
+		grid-template-columns: 1fr;
+		font-family: helvetica;
+		
+		#center{
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding: 0px 0px 30px 0px;
+
+			#controles{
+				display: grid;
+				grid-template-columns: 142px 1fr 142px;
+				grid-template-rows: 70px;
+				gap: 10px;
+				margin: 30px 0px 0px 0px;
+
+				#estoque-header{
+					display: flex;
+					flex-direction: column;
+					align-items: start;
+					justify-content: center;
+					text-align: left;
+					font-size: 1.5em;
+					font-weight: bold;
+					margin: 0px 20px 0px 0px;
+				}
+
+				#criar-produto-container {
+					grid-column: -1;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+
+					#criar-produto {
+						font-size: 1em;
+						border: none;
+						width: 100%;
+						margin: 10px 0px 10px 0px;
+						padding: 10px 10px 10px 10px;
+						background-color: #dddddd;
+						box-shadow: 1px 1px 2px 0px #999999;
+						text-align: center;
+						box-sizing: border-box;
+						border-radius: 5px;
+
+						&:hover{
+							background-color: #999999;
+							color: #ffffff;
+							box-shadow: none;
+						}
+
+					}
+
+				}
+
+			}
+
+			#lista-produtos{
+				display: flex;
+				flex-direction: column;
+				align-items: start;
+				justify-content: center;
+
+				.produto{
+					display: grid;
+					grid-template-columns: repeat(14,30px);
+					grid-template-rows: 180px 100px;
+					border-radius: 5px;
+					background-color: #e0e0e0;
+					box-shadow: 1px 1px 2px 0px #999999;
+					margin: 0px 0px 20px 0px;
+
+					.produto-imagem-container{
+						grid-column: 1 / 5;
+						overflow: hidden;
+						border-top-left-radius: 5px;
+						background-color: #ffffff;
+						position: relative;
+						.produto-imagem{
+							max-width: 100%;
+							max-height: 100%;
+							position: absolute;
+							top: 0;
+							bottom: 0;
+							left: 0;
+							right: 0;
+						}
+					}
+					
+					.produto-informacoes{
+						grid-column: 5 / 15;
+						padding: 10px 10px 10px 10px;
+
+						.produto-nome-input{
+							border-radius: 5px;
+						}
+
+						.produto-preco-input{
+							border-radius: 5px;
+						}
+
+						.produto-nome{
+							margin: 0px 0px 10px 0px;
+						}
+
+						.produto-preco{
+							font-size: 1.2em;
+							font-weight: bold;
+							margin: 0px 0px 10px 0px;
+						}
+
+						.produto-quantidade{
+							font-size: 0.8em;
+							margin: 0px 0px 10px 0px;
+						}
+
+						.produto-estoque-controles{
+							display: flex;
+							flex-direction: row;
+							align-item: start;
+							justify-content: start;
+							
+							.produto-estoque-editar{
+								margin: 0px 10px 0px 0px;
+								font-size: 1.1em;
+								border: none;
+								border-radius: 5px;
+								background-color: #2255ff;
+								color: #f0f0f0;
+								box-shadow: 1px 1px 2px 0px #999999;
+								padding: 5px 10px 5px 10px;
+
+								&:hover{
+									background-color: #0033ff;
+								}
+
+							}
+							
+							.produto-estoque-excluir{
+								border: none;
+								font-size: 1.1em;
+								border-radius: 5px;
+								background-color: #ff5522;
+								color: #f0f0f0;
+								box-shadow: 1px 1px 2px 0px #999999;
+								padding: 5px 10px 5px 10px;
+
+								&:hover{
+									background-color: #ff3300;
+								}
+
+							}
+
+							.produto-estoque-cancelar{
 								border: none;
 								border-radius: 5px;
 								background-color: #ff5522;
@@ -351,26 +553,565 @@
 								&:hover{
 									background-color: #ff3300;
 								}
+
+							}
+
+							.produto-estoque-salvar{
+								border: none;
+								border-radius: 5px;
+								background-color: #11bb33;
+								color: #f0f0f0;
+								box-shadow: 1px 1px 2px 0px #999999;
+								padding: 5px 10px 5px 10px;
+
+								&:hover{
+									background-color: #119933;
+								}
+							}
+
+						}
+
+					}
+					
+					.produto-adiciona-estoque{
+						grid-column: 2 / 8;
+						grid-row: 2;
+						margin: 10px 0px 0px 0px;
+						display: flex;
+						flex-direction: column;
+						align-items: start;
+
+						.produto-adiciona-estoque-grupo{
+							border-radius: 5px;
+							background-color: #fdfdfd;
+							display: flex;
+							flex-direction: row;
+							align-items: center;
+							justify-content: center;
+							box-shadow: 1px 1px 2px 0px #999999;
+
+							.produto-adiciona-estoque-menos{
+								border-top-left-radius: 5px;
+								border-bottom-left-radius: 5px;
+								background-color: #fdfdfd;
+								border: none;
+								height: 28px;
+								box-sizing: border-box;
+								padding: 0px 10px 0px 10px;
+
+								&:hover{
+									background-color: #999999;
+									color: #ffffff;
+								}
+							}
+
+							.produto-adiciona-estoque-quantidade{
+								background-color: #fdfdfd;
+								border: none;
+								font-size: 1.2em;
+								width: 100px;
+								box-sizing: border-box;
+							}
+							
+							.produto-adiciona-estoque-mais{
+								border-top-right-radius: 5px;
+								border-bottom-right-radius: 5px;
+								background-color: #fdfdfd;
+								border: none;
+								height: 28px;
+								box-sizing: border-box;
+								padding: 0px 10px 0px 10px;
+
+								&:hover{
+									background-color: #999999;
+									color: #ffffff;
+								}
+
+							}
+						}
+
+						.produto-adiciona-estoque-confirmar{
+							border: none;
+							background-color: #999999;
+							color: #ffffff;
+							font-size: 1.1em;
+							margin: 20px 0px 0px 0px;
+							padding: 5px 10px 5px 10px;
+							width: 152px;
+							box-sizing: border-box;
+							border-radius: 5px;
+							box-shadow: 1px 1px 2px 0px #444444;
+
+							&:hover{
+								background-color: #333333;
+							}
+
+						}
+					}
+
+					.produto-estoque-modal-escondido{
+						display: none;
+						visibility: hidden;
+					}
+
+					.produto-estoque-modal{
+						position: absolute;
+						top: 0;
+						bottom: 0;
+						left: 0;
+						right: 0;
+						width: 100vw;
+						height: 100%;
+						background-color: rgba(#999999,0.3);
+						z-index: 1;
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						justify-content: start;
+
+						.card{
+							position: fixed;
+							margin: 30px 0px 0px 0px;
+							padding: 10px 10px 10px 10px;
+							background-color: #f0f0f0;
+							box-shadow: 1px 1px 2px 0px #999999;
+							border-radius: 5px;
+							display: flex;
+							flex-direction: column;
+							align-items: start;
+							justify-content: start;
+
+							.header{
+								font-size: 1.2em;
+								font-weight: bold;
+								margin: 0px 0px 10px 0px;
+							}
+
+							.body{
+								margin: 0px 0px 20px 0px;
+							}
+
+							.footer{
+								
+								display: flex;
+								flex-direction: row;
+								align-items: center;
+								justify-content: center;
+
+								.excluir-produto-confirmar{
+									margin: 0px 10px 0px 0px;
+									font-size: 1.2em;
+									border: none;
+									border-radius: 5px;
+									background-color: #11bb33;
+									color: #f0f0f0;
+									box-shadow: 1px 1px 2px 0px #999999;
+									padding: 5px 10px 5px 10px;
+
+									&:hover{
+										background-color: #119933;
+									}
+								}
+
+								.excluir-produto-cancelar{
+									font-size: 1.2em;
+									border: none;
+									border-radius: 5px;
+									background-color: #ff5522;
+									color: #f0f0f0;
+									box-shadow: 1px 1px 2px 0px #999999;
+									padding: 5px 10px 5px 10px;
+
+									&:hover{
+										background-color: #ff3300;
+									}
+								}
 							}
 						}
 					}
+
 				}
 
 			}
 
+			#lista-vazia{
+				padding: 10px 10px 10px 10px;
+				border-radius: 5px;
+				background-color: #e0e0e0;
+				box-shadow: 1px 1px 2px 0px #999999;
+				width: 300px;
+				align-self: center;
+				text-align: center;
+			}
 		}
 
-		#lista-vazia{
-			padding: 10px 10px 10px 10px;
-			border-radius: 5px;
-			background-color: #e0e0e0;
-			box-shadow: 1px 1px 2px 0px #999999;
-			width: 300px;
-			align-self: center;
-			text-align: center;
-		}
 	}
-	
-	#right{}
+
+}
+
+@media screen and (max-width: 450px){
+
+	#estoque{
+		position: relative;
+		display: grid;
+		grid-template-columns: 1fr;
+		font-family: helvetica;
+		
+		#center{
+			display: flex;
+			flex-direction: column;
+			align-items: start;
+			justify-content: center;
+			padding: 0px 0px 30px 0px;
+
+			#controles{
+				display: grid;
+				grid-template-columns: 142px;
+				grid-template-rows: repeat(2,70px);
+				margin: 30px 10px 0px 10px;
+
+				#estoque-header{
+					display: flex;
+					flex-direction: column;
+					align-items: start;
+					justify-content: center;
+					text-align: left;
+					font-size: 1.5em;
+					font-weight: bold;
+					margin: 0px 20px 0px 0px;
+				}
+
+				#criar-produto-container {
+					grid-column: 1;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+
+					#criar-produto {
+						font-size: 1em;
+						border: none;
+						width: 100%;
+						margin: 0px 0px 10px 0px;
+						padding: 10px 10px 10px 10px;
+						background-color: #dddddd;
+						box-shadow: 1px 1px 2px 0px #999999;
+						text-align: center;
+						box-sizing: border-box;
+						border-radius: 5px;
+
+						&:hover{
+							background-color: #999999;
+							color: #ffffff;
+							box-shadow: none;
+						}
+
+					}
+
+				}
+
+			}
+
+			#lista-produtos{
+				display: flex;
+				flex-direction: column;
+				align-items: start;
+				justify-content: center;
+				margin: 0px 10px 0px 10px;
+
+				.produto{
+					display: grid;
+					grid-template-columns: repeat(10,30px);
+					grid-template-rows: 180px 100px;
+					border-radius: 5px;
+					background-color: #e0e0e0;
+					box-shadow: 1px 1px 2px 0px #999999;
+					margin: 0px 0px 20px 0px;
+
+					.produto-imagem-container{
+						grid-column: 1 / 5;
+						overflow: hidden;
+						border-top-left-radius: 5px;
+						background-color: #ffffff;
+						position: relative;
+						.produto-imagem{
+							max-width: 100%;
+							max-height: 100%;
+							position: absolute;
+							top: 0;
+							bottom: 0;
+							left: 0;
+							right: 0;
+						}
+					}
+					
+					.produto-informacoes{
+						grid-column: 5 / 11;
+						padding: 10px 10px 10px 10px;
+
+						.produto-nome-input{
+							border-radius: 5px;
+						}
+
+						.produto-preco-input{
+							border-radius: 5px;
+						}
+
+						.produto-nome{
+							margin: 0px 0px 10px 0px;
+						}
+
+						.produto-preco{
+							font-size: 1.2em;
+							font-weight: bold;
+							margin: 0px 0px 10px 0px;
+						}
+
+						.produto-quantidade{
+							font-size: 0.8em;
+							margin: 0px 0px 10px 0px;
+						}
+
+						.produto-estoque-controles{
+							display: flex;
+							flex-direction: row;
+							align-item: start;
+							justify-content: start;
+							
+							.produto-estoque-editar{
+								margin: 0px 10px 0px 0px;
+								font-size: 1.1em;
+								border: none;
+								border-radius: 5px;
+								background-color: #2255ff;
+								color: #f0f0f0;
+								box-shadow: 1px 1px 2px 0px #999999;
+								padding: 5px 10px 5px 10px;
+
+								&:hover{
+									background-color: #0033ff;
+								}
+
+							}
+							
+							.produto-estoque-excluir{
+								border: none;
+								font-size: 1.1em;
+								border-radius: 5px;
+								background-color: #ff5522;
+								color: #f0f0f0;
+								box-shadow: 1px 1px 2px 0px #999999;
+								padding: 5px 10px 5px 10px;
+
+								&:hover{
+									background-color: #ff3300;
+								}
+
+							}
+
+							.produto-estoque-cancelar{
+								border: none;
+								border-radius: 5px;
+								background-color: #ff5522;
+								color: #f0f0f0;
+								box-shadow: 1px 1px 2px 0px #999999;
+								padding: 5px 10px 5px 10px;
+
+								&:hover{
+									background-color: #ff3300;
+								}
+
+							}
+
+							.produto-estoque-salvar{
+								border: none;
+								border-radius: 5px;
+								background-color: #11bb33;
+								color: #f0f0f0;
+								box-shadow: 1px 1px 2px 0px #999999;
+								padding: 5px 10px 5px 10px;
+
+								&:hover{
+									background-color: #119933;
+								}
+							}
+
+						}
+
+					}
+					
+					.produto-adiciona-estoque{
+						grid-column: 2 / 8;
+						grid-row: 2;
+						margin: 10px 0px 0px 0px;
+						display: flex;
+						flex-direction: column;
+						align-items: start;
+
+						.produto-adiciona-estoque-grupo{
+							border-radius: 5px;
+							background-color: #fdfdfd;
+							display: flex;
+							flex-direction: row;
+							align-items: center;
+							justify-content: center;
+							box-shadow: 1px 1px 2px 0px #999999;
+
+							.produto-adiciona-estoque-menos{
+								border-top-left-radius: 5px;
+								border-bottom-left-radius: 5px;
+								background-color: #fdfdfd;
+								border: none;
+								height: 28px;
+								box-sizing: border-box;
+								padding: 0px 10px 0px 10px;
+
+								&:hover{
+									background-color: #999999;
+									color: #ffffff;
+								}
+							}
+
+							.produto-adiciona-estoque-quantidade{
+								background-color: #fdfdfd;
+								border: none;
+								font-size: 1.2em;
+								width: 100px;
+								box-sizing: border-box;
+							}
+							
+							.produto-adiciona-estoque-mais{
+								border-top-right-radius: 5px;
+								border-bottom-right-radius: 5px;
+								background-color: #fdfdfd;
+								border: none;
+								height: 28px;
+								box-sizing: border-box;
+								padding: 0px 10px 0px 10px;
+
+								&:hover{
+									background-color: #999999;
+									color: #ffffff;
+								}
+
+							}
+						}
+
+						.produto-adiciona-estoque-confirmar{
+							border: none;
+							background-color: #999999;
+							color: #ffffff;
+							font-size: 1.1em;
+							margin: 20px 0px 0px 0px;
+							padding: 5px 10px 5px 10px;
+							width: 152px;
+							box-sizing: border-box;
+							border-radius: 5px;
+							box-shadow: 1px 1px 2px 0px #444444;
+
+							&:hover{
+								background-color: #333333;
+							}
+
+						}
+					}
+
+					.produto-estoque-modal-escondido{
+						display: none;
+						visibility: hidden;
+					}
+
+					.produto-estoque-modal{
+						position: absolute;
+						top: 0;
+						bottom: 0;
+						left: 0;
+						right: 0;
+						width: 100vw;
+						height: 100%;
+						background-color: rgba(#999999,0.3);
+						z-index: 1;
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						justify-content: start;
+
+						.card{
+							position: fixed;
+							margin: 30px 0px 0px 0px;
+							padding: 10px 10px 10px 10px;
+							background-color: #f0f0f0;
+							box-shadow: 1px 1px 2px 0px #999999;
+							border-radius: 5px;
+							display: flex;
+							flex-direction: column;
+							align-items: start;
+							justify-content: start;
+
+							.header{
+								font-size: 1.2em;
+								font-weight: bold;
+								margin: 0px 0px 10px 0px;
+							}
+
+							.body{
+								margin: 0px 0px 20px 0px;
+							}
+
+							.footer{
+								
+								display: flex;
+								flex-direction: row;
+								align-items: center;
+								justify-content: center;
+
+								.excluir-produto-confirmar{
+									margin: 0px 10px 0px 0px;
+									font-size: 1.2em;
+									border: none;
+									border-radius: 5px;
+									background-color: #11bb33;
+									color: #f0f0f0;
+									box-shadow: 1px 1px 2px 0px #999999;
+									padding: 5px 10px 5px 10px;
+
+									&:hover{
+										background-color: #119933;
+									}
+								}
+
+								.excluir-produto-cancelar{
+									font-size: 1.2em;
+									border: none;
+									border-radius: 5px;
+									background-color: #ff5522;
+									color: #f0f0f0;
+									box-shadow: 1px 1px 2px 0px #999999;
+									padding: 5px 10px 5px 10px;
+
+									&:hover{
+										background-color: #ff3300;
+									}
+								}
+							}
+						}
+					}
+
+				}
+
+			}
+
+			#lista-vazia{
+				padding: 10px 10px 10px 10px;
+				border-radius: 5px;
+				background-color: #e0e0e0;
+				box-shadow: 1px 1px 2px 0px #999999;
+				width: 300px;
+				align-self: center;
+				text-align: center;
+			}
+		}
+
+	}
 
 }
