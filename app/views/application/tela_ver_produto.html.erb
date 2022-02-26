@@ -1,29 +1,46 @@
 <div id="ver-produto">
 	<div id="left"></div>
 	<div id="center">
-		<div id="produto-container">
-			<div id="produto-display">
-				<div id="produto-imagem-container">
-					<img id="produto-imagem" src="<%= asset_path(@icone.path)%>">
+		<% if @imagens.present? %>
+			<div id="produto-container">
+				<div id="produto-display">
+					<div id="produto-imagem-container">
+						<img id="produto-imagem" src="<%= asset_path(@icone.path)%>">
+					</div>
+					<div id="produto-informacoes">
+						<div id="produto-nome"><%= @produto.nome %></div>
+						<div id="produto-preco">R$ <%= @produto.preco %></div>
+						<div id="produto-informacoes-controles">
+							<button class="botao-adicionar-carrinho" id="botao-adicionar-carrinho-<%= params[:id]%>">Adicionar ao carrinho</button>
+						</div>
+					</div>
 				</div>
-				<div id="produto-informacoes">
-					<div id="produto-nome"><%= @produto.nome %></div>
-					<div id="produto-preco">R$ <%= @produto.preco %></div>
-					<div id="produto-informacoes-controles">
-						<button class="botao-adicionar-carrinho" id="botao-adicionar-carrinho-<%= params[:id]%>">Adicionar ao carrinho</button>
+				<div id="produto-carroussel-imagens">
+					<% @imagens.each do |imagem| %>
+						<img class="produto-carroussel-imagem" src="<%= asset_path(imagem.path)%>">
+					<% end %>
+				</div>
+				<div id="produto-carroussel-cover">
+					<div id="produto-carroussel-up"></div>
+					<div id="produto-carroussel-down"></div>
+				</div>
+			</div>
+		<% else %>
+			<div id="produto-container-sem-carroussel">
+				<div id="produto-display">
+					<div id="produto-imagem-container">
+						<img id="produto-imagem" src="<%= asset_path(@icone.path)%>">
+					</div>
+					<div id="produto-informacoes">
+						<div id="produto-nome"><%= @produto.nome %></div>
+						<div id="produto-preco">R$ <%= @produto.preco %></div>
+						<div id="produto-informacoes-controles">
+							<button class="botao-adicionar-carrinho" id="botao-adicionar-carrinho-<%= params[:id]%>">Adicionar ao carrinho</button>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div id="produto-carroussel-imagens">
-				<% @imagens.each do |imagem| %>
-					<img class="produto-carroussel-imagem" src="<%= asset_path(imagem.path)%>">
-				<% end %>
-			</div>
-			<div id="produto-carroussel-cover">
-				<div id="produto-carroussel-up"></div>
-				<div id="produto-carroussel-down"></div>
-			</div>
-		</div>
+		<% end %>
 	</div>
 	<div id="right"></div>
 </div>

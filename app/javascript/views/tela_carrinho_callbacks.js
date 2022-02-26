@@ -125,8 +125,6 @@ function html_item_carrinho(data){
 
 	icone_link.appendChild(icone_imagem)
 	icone_container.appendChild(icone_link)
-	informacoes.appendChild(nome)
-	informacoes.appendChild(preco)
 	quantidade.appendChild(diminui_quantidade)
 	quantidade.appendChild(input_quantidade)
 	quantidade.appendChild(aumenta_quantidade)
@@ -136,6 +134,8 @@ function html_item_carrinho(data){
 	carrinho_item.appendChild(quantidade)
 	carrinho_item.appendChild(total)
 	carrinho_item.appendChild(controles)
+	informacoes.appendChild(nome)
+	informacoes.appendChild(preco)
 	carrinho_item.appendChild(input_produto_id)
 
 	return carrinho_item
@@ -177,37 +177,6 @@ function consulta_produtos(){
 	ajax.setRequestHeader("Content-type", "application/json");
 	ajax.setRequestHeader("X-CSRF-Token", document.getElementsByName('csrf-token')[0].content);
 	ajax.send('{"data":'+JSON.stringify(itens_carrinho)+"}")
-}
-
-function registra_eventos(){
-		var botoes_remover_carrinho = Array.from(document.getElementsByClassName('item-carrinho-controles-remover'))
-		var itens_carrinho_quantidade_aumenta = Array.from(document.getElementsByClassName('item-carrinho-quantidade-aumenta'))
-		var itens_carrinho_quantidade_diminui = Array.from(document.getElementsByClassName('item-carrinho-quantidade-diminui'))
-
-		botoes_remover_carrinho.forEach((item) => {
-			item.removeEventListener('click',function(e){ remove_item_carrinho(e); atualizar_total_carrinho(); })
-		})
-
-		botoes_remover_carrinho.forEach((item) => {
-			item.addEventListener('click',function(e){ remove_item_carrinho(e); atualizar_total_carrinho(); })
-		})
-
-		itens_carrinho_quantidade_aumenta.forEach((item) => {
-			item.removeEventListener('click',function(e){ aumenta_quantidade_item(e); atualiza_total_item(e); atualizar_total_carrinho(); })
-		})
-
-		itens_carrinho_quantidade_aumenta.forEach((item) => {
-			item.addEventListener('click',function(e){ aumenta_quantidade_item(e); ; atualiza_total_item(e); atualizar_total_carrinho(); })
-		})
-
-		itens_carrinho_quantidade_diminui.forEach((item) => {
-			item.removeEventListener('click',function(e){ diminui_quantidade_item(e); ; atualiza_total_item(e); atualizar_total_carrinho(); })
-		})
-
-		itens_carrinho_quantidade_diminui.forEach((item) => {
-			item.addEventListener('click',function(e){ diminui_quantidade_item(e); ; atualiza_total_item(e); atualizar_total_carrinho(); })
-		})
-
 }
 
 export {

@@ -106,7 +106,6 @@ document.addEventListener('turbo:load',function(){
 
 })
 
-
 document.addEventListener('cria-carrinho',function(){
 
 	mapa_classe_eventos_cria_carrinho.forEach((item)=>{

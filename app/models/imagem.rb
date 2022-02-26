@@ -22,12 +22,12 @@ class Imagem < ApplicationRecord
 		imagem.close
 	end
 
-	def self.assets_folder
-		'produtos/'
+	def full_path
+		"assets/#{self.path}"
 	end
 
-	def full_path
-		ActionController::Base.helpers.asset_path(self.path)
+	def self.assets_folder
+		'produtos/'
 	end
 
 end
