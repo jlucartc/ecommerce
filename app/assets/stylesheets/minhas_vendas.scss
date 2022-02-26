@@ -1,116 +1,348 @@
-#minhas-vendas{
+@media screen and (min-width: 1270px){
+	#minhas-vendas{
 
-	display: grid;
-	grid-template-columns: 1fr 3fr 1fr;
-	font-family: helvetica;
+		display: grid;
+		grid-template-columns: 1fr 3fr 1fr;
+		font-family: helvetica;
 
-	#left{}
+		#left{}
 
-	#center{
-
-		display: flex;
-		flex-direction: column;
-		align-items: start;
-		justify-content: start;
-		
-		#pedidos-header{
-			margin: 40px 0px 0px 0px;
-			display: grid;
-			grid-template-columns: repeat(12,100px);
-
-			#pedidos-titulo{
-				grid-column: 1 / 3;
-				font-size: 1.5em;
-				font-weight: bold;
-			}
-
-		}
-
-		#lista-pedidos{
+		#center{
 
 			display: flex;
 			flex-direction: column;
 			align-items: start;
 			justify-content: start;
-			margin: 20px 0px 30px 0px;
-			width: 100%;
-
-			.pedido{
-				width: 100%;
-				margin: 0px 0px 20px 0px;
-				border-radius: 5px;
-				box-shadow: 1px 1px 2px 0px #999999;
+			
+			#pedidos-header{
+				margin: 40px 0px 0px 0px;
 				display: grid;
-				grid-template-columns: 120px 1fr 3fr;
-				grid-template-rows: 180px;
-				background-color: #e0e0e0;
+				grid-template-columns: repeat(12,100px);
 
-				.pedido-imagem-container{
-					overflow: hidden;
-					border-top-left-radius: 5px;
-					border-bottom-left-radius: 5px;
-					background-color: #ffffff;
-					position: relative;
-
-					.pedido-imagem{
-						max-width: 100%;
-						max-height: 100%;
-						position: absolute;
-						top: 0;
-						bottom: 0;
-						left: 0;
-						right: 0;
-					}
+				#pedidos-titulo{
+					grid-column: 1 / 3;
+					font-size: 1.5em;
+					font-weight: bold;
 				}
 
-				.pedido-informacoes{
-					padding: 20px 10px 10px 20px;
-					display: flex;
-					flex-direction: column;
-					align-items: start;
-					justify-content: start;
-
-					.pedido-nome{
-						margin: 0px 0px 10px 0px;
-					}
-
-					.pedido-preco{
-						margin: 0px 0px 10px 0px;
-					}
-
-					.pedido-quantidade{
-						font-size: 0.8em;
-						margin: 0px 0px 10px 0px;
-					}
-
-					.pedido-data{
-						font-size: 0.8em;
-						margin: 0px 0px 10px 0px;
-					}
-
-					.pedido-total{
-						font-size: 1.2em;
-						font-weight: bold;
-						margin: 10px 0px 10px 0px;
-					}
-				}
 			}
 
+			#lista-pedidos{
+
+				display: flex;
+				flex-direction: column;
+				align-items: start;
+				justify-content: start;
+				margin: 20px 0px 30px 0px;
+				width: 100%;
+
+				.pedido{
+					width: 100%;
+					margin: 0px 0px 20px 0px;
+					border-radius: 5px;
+					box-shadow: 1px 1px 2px 0px #999999;
+					display: grid;
+					grid-template-columns: 120px 1fr 3fr;
+					grid-template-rows: 180px;
+					background-color: #e0e0e0;
+
+					.pedido-imagem-container{
+						overflow: hidden;
+						border-top-left-radius: 5px;
+						border-bottom-left-radius: 5px;
+						background-color: #ffffff;
+						position: relative;
+
+						.pedido-imagem{
+							max-width: 100%;
+							max-height: 100%;
+							position: absolute;
+							top: 0;
+							bottom: 0;
+							left: 0;
+							right: 0;
+						}
+					}
+
+					.pedido-informacoes{
+						padding: 20px 10px 10px 20px;
+						display: flex;
+						flex-direction: column;
+						align-items: start;
+						justify-content: start;
+
+						.pedido-nome{
+							margin: 0px 0px 10px 0px;
+						}
+
+						.pedido-preco{
+							margin: 0px 0px 10px 0px;
+						}
+
+						.pedido-quantidade{
+							font-size: 0.8em;
+							margin: 0px 0px 10px 0px;
+						}
+
+						.pedido-data{
+							font-size: 0.8em;
+							margin: 0px 0px 10px 0px;
+						}
+
+						.pedido-total{
+							font-size: 1.2em;
+							font-weight: bold;
+							margin: 10px 0px 10px 0px;
+						}
+					}
+				}
+
+
+			}
+
+			#lista-vazia{
+				padding: 10px 10px 10px 10px;
+				border-radius: 5px;
+				background-color: #e0e0e0;
+				box-shadow: 1px 1px 2px 0px #999999;
+				width: 300px;
+				align-self: center;
+				text-align: center;
+			}
 
 		}
 
-		#lista-vazia{
-			padding: 10px 10px 10px 10px;
-			border-radius: 5px;
-			background-color: #e0e0e0;
-			box-shadow: 1px 1px 2px 0px #999999;
-			width: 300px;
-			align-self: center;
-			text-align: center;
+		#right{}
+
+	}
+}
+
+@media screen and (min-width: 0px) and (max-width: 1270px){
+	#minhas-vendas{
+
+		display: grid;
+		grid-template-columns: 1fr;
+		font-family: helvetica;
+
+		#center{
+
+			grid-column: 1;
+			display: grid;
+			grid-template-columns: 1fr 3fr 1fr;
+			
+			#pedidos-header{
+				grid-column: 2;
+				margin: 40px 0px 0px 0px;
+				display: grid;
+				grid-template-columns: 200px;
+
+				#pedidos-titulo{
+					grid-column: 1 / 3;
+					font-size: 1.5em;
+					font-weight: bold;
+				}
+
+			}
+
+			#lista-pedidos{
+				grid-column: 2;
+				display: flex;
+				flex-direction: column;
+				align-items: start;
+				justify-content: start;
+				margin: 20px 0px 30px 0px;
+				width: 100%;
+
+				.pedido{
+					width: 100%;
+					margin: 0px 0px 20px 0px;
+					border-radius: 5px;
+					box-shadow: 1px 1px 2px 0px #999999;
+					display: grid;
+					grid-template-columns: 120px 1fr;
+					grid-template-rows: 180px;
+					background-color: #e0e0e0;
+
+					.pedido-imagem-container{
+						overflow: hidden;
+						border-top-left-radius: 5px;
+						border-bottom-left-radius: 5px;
+						background-color: #ffffff;
+						position: relative;
+
+						.pedido-imagem{
+							max-width: 100%;
+							max-height: 100%;
+							position: absolute;
+							top: 0;
+							bottom: 0;
+							left: 0;
+							right: 0;
+						}
+					}
+
+					.pedido-informacoes{
+						padding: 20px 10px 10px 20px;
+						display: flex;
+						flex-direction: column;
+						align-items: start;
+						justify-content: start;
+
+						.pedido-nome{
+							margin: 0px 0px 10px 0px;
+						}
+
+						.pedido-preco{
+							margin: 0px 0px 10px 0px;
+						}
+
+						.pedido-quantidade{
+							font-size: 0.8em;
+							margin: 0px 0px 10px 0px;
+						}
+
+						.pedido-data{
+							font-size: 0.8em;
+							margin: 0px 0px 10px 0px;
+						}
+
+						.pedido-total{
+							font-size: 1.2em;
+							font-weight: bold;
+							margin: 10px 0px 10px 0px;
+						}
+					}
+				}
+
+			}
+
+			#lista-vazia{
+				grid-column: 2;
+				padding: 10px 10px 10px 10px;
+				border-radius: 5px;
+				background-color: #e0e0e0;
+				box-shadow: 1px 1px 2px 0px #999999;
+				width: 300px;
+				align-self: center;
+				text-align: center;
+			}
+
 		}
 
 	}
+}
 
-	#right{}
+@media screen and (min-width: 0px) and (max-width: 1270px){
+	#minhas-vendas{
 
+		display: grid;
+		grid-template-columns: 1fr;
+		font-family: helvetica;
+
+		#center{
+
+			grid-column: 1;
+			display: grid;
+			grid-template-columns: 1fr 10fr 1fr;
+			
+			#pedidos-header{
+				grid-column: 2;
+				margin: 40px 0px 0px 0px;
+				display: grid;
+				grid-template-columns: 200px;
+
+				#pedidos-titulo{
+					grid-column: 1 / 3;
+					font-size: 1.5em;
+					font-weight: bold;
+				}
+
+			}
+
+			#lista-pedidos{
+				grid-column: 2;
+				display: flex;
+				flex-direction: column;
+				align-items: start;
+				justify-content: start;
+				margin: 20px 0px 30px 0px;
+				width: 100%;
+
+				.pedido{
+					width: 100%;
+					margin: 0px 0px 20px 0px;
+					border-radius: 5px;
+					box-shadow: 1px 1px 2px 0px #999999;
+					display: grid;
+					grid-template-columns: 120px 1fr;
+					grid-template-rows: 180px;
+					background-color: #e0e0e0;
+
+					.pedido-imagem-container{
+						overflow: hidden;
+						border-top-left-radius: 5px;
+						border-bottom-left-radius: 5px;
+						background-color: #ffffff;
+						position: relative;
+
+						.pedido-imagem{
+							max-width: 100%;
+							max-height: 100%;
+							position: absolute;
+							top: 0;
+							bottom: 0;
+							left: 0;
+							right: 0;
+						}
+					}
+
+					.pedido-informacoes{
+						padding: 20px 10px 10px 20px;
+						display: flex;
+						flex-direction: column;
+						align-items: start;
+						justify-content: start;
+
+						.pedido-nome{
+							margin: 0px 0px 10px 0px;
+						}
+
+						.pedido-preco{
+							margin: 0px 0px 10px 0px;
+						}
+
+						.pedido-quantidade{
+							font-size: 0.8em;
+							margin: 0px 0px 10px 0px;
+						}
+
+						.pedido-data{
+							font-size: 0.8em;
+							margin: 0px 0px 10px 0px;
+						}
+
+						.pedido-total{
+							font-size: 1.2em;
+							font-weight: bold;
+							margin: 10px 0px 10px 0px;
+						}
+					}
+				}
+
+			}
+
+			#lista-vazia{
+				grid-column: 2;
+				padding: 10px 10px 10px 10px;
+				border-radius: 5px;
+				background-color: #e0e0e0;
+				box-shadow: 1px 1px 2px 0px #999999;
+				width: 300px;
+				align-self: center;
+				text-align: center;
+			}
+
+		}
+
+	}
 }
