@@ -52,7 +52,7 @@ class CarrinhoTest < ApplicationSystemTestCase
     produto_id = adiciona_produto_ao_carrinho
     finaliza_compra
     visit minhas_compras_path
-    assert_selector "p", class: "pedido-nome",text: produtos.filter{|produto| produto[:id].to_s == produto_id.to_s}.first[:nome]
+    assert_selector "p", class: "pedido-nome",text: Produto.find(produto_id).nome
   end
 
   test "o usuario deve ser redirecionado para a pagina de pedidos ao finalizar sua compra" do
