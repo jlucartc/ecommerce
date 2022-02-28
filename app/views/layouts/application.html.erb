@@ -14,21 +14,25 @@
       <div class="menu-icone-container">
         <img class="menu-icone" src="<%= asset_path('dummy') %>">
       </div>
-      <div class="menu-link-container">
-        <a class="menu-link" href="<%= landing_page_path %>">Home</a>
-        <a class="menu-link" href="<%= carrinho_path %>">Carrinho</a>
-        <% if current_usuario.present? %>
+      <% if current_usuario.present? %>
+        <div class="menu-link-container">
+          <a class="menu-link" href="<%= landing_page_path %>">Home</a>
+          <a class="menu-link" href="<%= carrinho_path %>">Carrinho</a>
           <a class="menu-link" href="<%= minhas_compras_path %>">Compras</a>
           <a class="menu-link" href="<%= minhas_vendas_path %>">Vendas</a>
           <a class="menu-link" href="<%= estoque_path %>">Estoque</a>
-          <form class="menu-link-logout-form" action="<%= destroy_usuario_session_path %>" method="delete">
-            <%= token_tag %>
-            <input class="menu-link menu-link-logout" type="submit" value="Logout">
-          </form>
-        <% else %>
+        </div>
+        <form class="menu-link-logout-form" action="<%= destroy_usuario_session_path %>" method="delete">
+          <%= token_tag %>
+          <input class="menu-link menu-link-logout" type="submit" value="Logout">
+        </form>
+      <% else %>
+        <div class="menu-link-container">
+          <a class="menu-link" href="<%= landing_page_path %>">Home</a>
+          <a class="menu-link" href="<%= carrinho_path %>">Carrinho</a>
           <a class="menu-link" href="<%= new_usuario_session_path %>">Login</a>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
     <%= yield %>
   </body>
