@@ -22,6 +22,21 @@ body {
   background-color: #f0f0f0;
   height: 100%;
   margin: 0px;
+
+  .flash-success{
+    font-family: helvetica;
+    background-color: #55bb55;
+    color: #ffffff;
+    padding: 10px 10px 10px 10px;
+  }
+
+  .flash-danger{
+    font-family: helvetica;
+    background-color: #ff5555;
+    color: #ffffff;
+    padding: 10px 10px 10px 10px;
+  }
+
 }
 
 @media screen and (min-width: 760px){
